@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUCACHIPS - Keripik Pelepah Pisang Inovatif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pisang.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>MUCACHIPS</h1>
+                <p>Brownies Chips Pelepah Pisang</p>
+                <a href="#products" class="btn">Jelajahi Produk</a>
+            </div>
+        </section>
+
+        <section id="products" class="products container">
+            <h2>Produk Unggulan Kami</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="C:\Users\user\Documents\Website Kripik\asset\topchoco.webp" alt="MUCACHIPS Topping Choco Chips" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MUCACHIPS Topping Choco Chips</h3>
+                        <p class="product-description">Renyah dan gurih, cocok untuk camilan sehari-hari.</p>
+                        <p class="product-price">Rp 10.000</p>
+                        <button class="btn buy-btn" onclick="openBuyForm('MUCACHIPS Topping Choco Chips', 10000)">Beli Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="C:\Users\user\Documents\Website Kripik\asset\topkeju.webp" alt="MUCACHIPS Topping Keju" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MUCACHIPS Topping Keju</h3>
+                        <p class="product-description">Dengan bumbu pedas yang menggugah selera.</p>
+                        <p class="product-price">Rp 10.000</p>
+                        <button class="btn buy-btn" onclick="openBuyForm('MUCACHIPS Topping Keju', 10000)">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="buyModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeBuyForm()">&times;</span>
+                <h2>Beli <span id="productName"></span></h2>
+                <form id="orderForm" onsubmit="submitOrder(event)">
+                    <label for="name">Nama:</label>
+                    <input type="text" id="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                    
+                    <label for="phone">Nomor WhatsApp:</label>
+                    <input type="tel" id="phone" pattern="[0-9]{10,13}" required>
+                    
+                    <label for="quantity">Jumlah:</label>
+                    <input type="number" id="quantity" value="1" min="1" required onchange="updateTotal()">
+                    
+                    <p>Total: Rp <span id="totalPrice">0</span></p>
+                    
+                    <button type="submit" class="btn">Pesan via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="mucachips.js"></script>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="C:\Users\user\Documents\Website Kripik\asset\logo-01.jpg" alt="MUCACHIPS" />
+                </div>
+                <div class="about-text">
+                    <p>MUCACHIPS adalah pelopor dalam inovasi camilan sehat berbahan dasar pelepah pisang. Kami berkomitmen untuk menghadirkan produk berkualitas tinggi yang tidak hanya lezat, tetapi juga ramah lingkungan.</p>
+                    <p>Didirikan pada tahun 2024, MUCACHIPS telah berkembang menjadi merek terkemuka dalam industri makanan ringan alternatif. Kami bangga dapat mengubah limbah pertanian menjadi camilan lezat yang dinikmati oleh ribuan pelanggan di seluruh Indonesia.</p>
+                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact container">
+        <h2>Hubungi Kami</h2>
+        <div class="contact-content">
+            <form class="contact-form">
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email Anda" required>
+                <textarea placeholder="Pesan Anda" required></textarea>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+            <div class="contact-info">
+                <h3>Informasi Kontak</h3>
+                <p><strong>Alamat:</strong> Jl. Cakrawala No.5, Sumbersari, Kec. Lowokwaru, Kota Malang, Jawa Timur 65145</p>
+                <p><strong>No. Telepon:</strong> +62 815-5437-0247</p>
+                <p><strong>Email:</strong> <a href="mailto:akmal.bachtiar.2103126@students.um.ac.id
+                    ">akmal.bachtiar.2103126@students.um.ac.id</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

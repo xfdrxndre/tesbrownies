@@ -1,0 +1,800 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header dan Navigasi */
+header {
+    background-color: rgba(74, 74, 74, 0.9);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/api/placeholder/1920/1080');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #f0f0f0;
+}
+
+/* Produk Section */
+.products {
+    padding: 6rem 0;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2e7d32;
+    font-size: 2.5rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #2e7d32;
+}
+
+.product-description {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: transparent;
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+/* About Section */
+.about {
+    padding: 6rem 0;
+    background-color: #f9f9f9;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-text {
+    padding: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+/* Contact Section */
+.contact {
+    padding: 6rem 0;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.contact-info h3 {
+    color: #2e7d32;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hero section */
+.hero {
+    background-image: url('https://example.com/path-to-your-hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Produk section */
+.products {
+    padding: 4rem 0;
+}
+.products h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.product-image {
+    height: 200px;
+    background-color: #f0f0f0;
+    background-size: cover;
+    background-position: center;
+}
+.product-info {
+    padding: 1rem;
+}
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.product-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+.product-price {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Tombol */
+.btn {
+    display: inline-flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 10px 20px; /* Add some padding */
+    font-size: 16px; /* Adjust font size as needed */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Optional: rounded corners */
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Change cursor to pointer */
+    text-align: center; /* Center text */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#orderForm {
+    display: flex;
+    flex-direction: column;
+}
+#orderForm input, #orderForm button {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+/* Contact Section Styles */
+.contact {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+}
+
+.contact h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+/* Contact Info Styles */
+.contact-info {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+    color: #2e7d32;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.contact-info strong {
+    color: #333;
+}
+
+.contact-info a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact {
+        padding: 3rem 1rem;
+    }
+
+    .contact-info {
+        padding: 1.5rem;
+    }
+}
+
+/* Hover Effects */
+.contact-form input:hover,
+.contact-form textarea:hover {
+    border-color: #4CAF50;
+}
+
+/* Animation for Submit Button */
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.contact-form button:active {
+    animation: buttonPulse 0.3s ease;
+}
+.about {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+}
+
+.about h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image {
+    height: 400px;
+    background-color: #ddd;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+.about-text {
+    padding: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.about-text .btn {
+    margin-top: 2rem;
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design for About Section */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        height: 300px;
+    }
+    
+    .about-text {
+        padding: 1rem;
+    }
+}
+
+.about {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-image {
+        max-width: 100%;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+}
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Set a default font */
+}
+
+/* Product Styles */
+.product-title {
+    font-size: 1.5rem; /* Larger title for better visibility */
+    margin-bottom: 0.5rem;
+}
+
+.product-description {
+    font-size: 1rem; /* Slightly larger description */
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Font size */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center; /* Center text */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    width: 100%; /* Full width for mobile devices */
+    max-width: 200px; /* Limit width on larger screens */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    z-index: 1; /* On top of other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+}
+
+.modal-content {
+    /* Add styles for modal content here */
+    background-color: #fff; /* White background for modal content */
+    margin: 15% auto; /* Center modal vertically and horizontally */
+    padding: 20px; /* Padding inside modal */
+    border-radius: 5px; /* Rounded corners */
+    width: 90%; /* Responsive width */
+    max-width: 500px; /* Limit maximum width */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-title {
+        font-size: 1.3rem; /* Adjust title size for smaller screens */
+    }
+
+    .product-description {
+        font-size: 0.9rem; /* Adjust description size */
+    }
+
+    .btn {
+        padding: 12px; /* Increase padding for better touch targets */
+        font-size: 18px; /* Slightly larger font size for buttons */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-title {
+        font-size: 1.2rem; /* Further adjustment for mobile */
+    }
+
+    .product-description {
+        font-size: 0.8rem; /* Further adjustment for mobile */
+    }
+
+    .btn {
+        font-size: 16px; /* Ensure buttons are readable */
+        padding: 15px; /* Increase padding for touch devices */
+    }
+}
