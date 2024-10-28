@@ -49,6 +49,7 @@ nav ul li a:hover {
 }
 
 /* Hero Section */
+
 .hero {
     position: relative;
     height: 100vh;
@@ -120,6 +121,7 @@ nav ul li a:hover {
         object-fit: cover; /* Cover the area without distortion */
     }
 }
+
 /* Produk Section */
 .products {
     padding: 6rem 0;
