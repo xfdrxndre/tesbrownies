@@ -3,119 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MUCACHIPS - Brownies Chips Pelepah Pisang Inovatif dari Malang">
+    <meta name="keywords" content="mucachips, brownies, pelepah pisang, makanan inovatif, malang">
     <title>MUCACHIPS - Keripik Pelepah Pisang Inovatif</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="pisang.css">
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <ul>
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#products">Produk</a></li>
-                <li><a href="#about">Tentang Kami</a></li>
-                <li><a href="#contact">Kontak</a></li>
+    <!-- Header -->
+    <header class="header">
+        <nav class="container nav" aria-label="Navigasi Utama">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link">Beranda</a></li>
+                <li class="nav__item"><a href="#products" class="nav__link">Produk</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link">Tentang Kami</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Kontak</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">MUCACHIPS</h1>
-                <p class="hero-description">Brownies Chips Pelepah Pisang</p>
-                <a href="#products" class="btn btn-primary">Jelajahi Produk</a>
+            <div class="hero__content">
+                <h1 class="hero__title">MUCACHIPS</h1>
+                <p class="hero__description">Brownies Chips Pelepah Pisang</p>
+                <a href="#products" class="btn btn--primary">Jelajahi Produk</a>
             </div>
-                <img src="./banner.PNG" alt="Banner Image" class="hero-banner">
+            <img 
+                src="./banner.PNG" 
+                alt="MUCACHIPS Banner - Brownies Chips Pelepah Pisang" 
+                class="hero__banner"
+                loading="eager"
+                width="1920"
+                height="1080"
+            >
         </section>
 
-        <section id="products" class="products container">
-            <h2>Produk Unggulan Kami</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="./topchoco.webp" alt="MUCACHIPS Topping Choco Chips" />
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">MUCACHIPS Topping Choco Chips</h3>
-                        <p class="product-description">Renyah dan gurih, cocok untuk camilan sehari-hari.</p>
-                        <p class="product-price">Rp 10.000</p>
-                        <button class="btn buy-btn" onclick="openBuyForm('MUCACHIPS Topping Choco Chips', 10000)">Beli Sekarang</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="./topkeju.webp" alt="MUCACHIPS Topping Keju" />
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">MUCACHIPS Topping Keju</h3>
-                        <p class="product-description">Dengan bumbu pedas yang menggugah selera.</p>
-                        <p class="product-price">Rp 10.000</p>
-                        <button class="btn buy-btn" onclick="openBuyForm('MUCACHIPS Topping Keju', 10000)">Beli Sekarang</button>
-                    </div>
+        <!-- Products Section -->
+        <section id="products" class="products">
+            <div class="container">
+                <h2 class="section__title">Produk Unggulan Kami</h2>
+                <div class="products__grid">
+                    <!-- Product Card 1 -->
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img 
+                                src="./topchoco.webp" 
+                                alt="MUCACHIPS Topping Choco Chips" 
+                                loading="lazy"
+                                width="400"
+                                height="300"
+                            />
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__title">MUCACHIPS Topping Choco Chips</h3>
+                            <p class="product-card__description">Renyah dan gurih, cocok untuk camilan sehari-hari.</p>
+                            <p class="product-card__price">Rp 10.000</p>
+                            <button 
+                                class="btn btn--secondary" 
+                                onclick="openBuyForm('MUCACHIPS Topping Choco Chips', 10000)"
+                                aria-label="Beli MUCACHIPS Topping Choco Chips"
+                            >
+                                Beli Sekarang
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Product Card 2 -->
+                    <article class="product-card">
+                        <div class="product-card__image">
+                            <img 
+                                src="./topkeju.webp" 
+                                alt="MUCACHIPS Topping Keju" 
+                                loading="lazy"
+                                width="400"
+                                height="300"
+                            />
+                        </div>
+                        <div class="product-card__info">
+                            <h3 class="product-card__title">MUCACHIPS Topping Keju</h3>
+                            <p class="product-card__description">Dengan bumbu pedas yang menggugah selera.</p>
+                            <p class="product-card__price">Rp 10.000</p>
+                            <button 
+                                class="btn btn--secondary" 
+                                onclick="openBuyForm('MUCACHIPS Topping Keju', 10000)"
+                                aria-label="Beli MUCACHIPS Topping Keju"
+                            >
+                                Beli Sekarang
+                            </button>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <div id="buyModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeBuyForm()">&times;</span>
-                <h2>Beli <span id="productName"></span></h2>
-                <form id="orderForm" onsubmit="submitOrder(event)">
-                    <label for="name">Nama:</label>
-                    <input type="text" id="name" required>
+        <!-- Buy Modal -->
+        <div id="buyModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal__content">
+                <button 
+                    class="modal__close" 
+                    onclick="closeBuyForm()" 
+                    aria-label="Tutup modal"
+                >
+                    &times;
+                </button>
+                <h2 id="modalTitle">Beli <span id="productName"></span></h2>
+                <form id="orderForm" class="form" onsubmit="submitOrder(event)">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Nama:</label>
+                        <input type="text" id="name" class="form__input" required>
+                    </div>
                     
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
+                    <div class="form__group">
+                        <label for="email" class="form__label">Email:</label>
+                        <input type="email" id="email" class="form__input" required>
+                    </div>
                     
-                    <label for="phone">Nomor WhatsApp:</label>
-                    <input type="tel" id="phone" pattern="[0-9]{10,13}" required>
+                    <div class="form__group">
+                        <label for="phone" class="form__label">Nomor WhatsApp:</label>
+                        <input type="tel" id="phone" class="form__input" pattern="[0-9]{10,13}" required>
+                    </div>
                     
-                    <label for="quantity">Jumlah:</label>
-                    <input type="number" id="quantity" value="1" min="1" required onchange="updateTotal()">
+                    <div class="form__group">
+                        <label for="quantity" class="form__label">Jumlah:</label>
+                        <input 
+                            type="number" 
+                            id="quantity" 
+                            class="form__input" 
+                            value="1" 
+                            min="1" 
+                            required 
+                            onchange="updateTotal()"
+                        >
+                    </div>
                     
-                    <p>Total: Rp <span id="totalPrice">0</span></p>
+                    <p class="form__total">Total: Rp <span id="totalPrice">0</span></p>
                     
-                    <button type="submit" class="btn">Pesan via WhatsApp</button>
+                    <button type="submit" class="btn btn--primary">Pesan via WhatsApp</button>
                 </form>
             </div>
         </div>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section__title">Tentang Kami</h2>
+                <div class="about__content">
+                    <div class="about__image">
+                        <img 
+                            src="./logo-01.jpg" 
+                            alt="Logo MUCACHIPS" 
+                            loading="lazy"
+                            width="400"
+                            height="400"
+                        />
+                    </div>
+                    <div class="about__text">
+                        <p>MUCACHIPS adalah pelopor dalam inovasi camilan sehat berbahan dasar pelepah pisang. Kami berkomitmen untuk menghadirkan produk berkualitas tinggi yang tidak hanya lezat, tetapi juga ramah lingkungan.</p>
+                        <p>Didirikan pada tahun 2024, MUCACHIPS telah berkembang menjadi merek terkemuka dalam industri makanan ringan alternatif. Kami bangga dapat mengubah limbah pertanian menjadi camilan lezat yang dinikmati oleh ribuan pelanggan di seluruh Indonesia.</p>
+                        <a href="#" class="btn btn--outline">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section__title">Hubungi Kami</h2>
+                <div class="contact__content">
+                    <form class="contact__form">
+                        <div class="form__group">
+                            <label for="contact-name" class="form__label">Nama Anda</label>
+                            <input type="text" id="contact-name" class="form__input" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="contact-email" class="form__label">Email Anda</label>
+                            <input type="email" id="contact-email" class="form__input" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="contact-message" class="form__label">Pesan Anda</label>
+                            <textarea id="contact-message" class="form__input" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Kirim Pesan</button>
+                    </form>
+
+                    <div class="contact__info">
+                        <h3 class="contact__subtitle">Informasi Kontak</h3>
+                        <address class="contact__address">
+                            <p><strong>Alamat:</strong> Jl. Cakrawala No.5, Sumbersari, Kec. Lowokwaru, Kota Malang, Jawa Timur 65145</p>
+                            <p><strong>No. Telepon:</strong> <a href="tel:+6281554370247">+62 815-5437-0247</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:aqil.zulkaisi.2103126@students.um.ac.id">aqil.zulkaisi.2103126@students.um.ac.id</a></p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="mucachips.js"></script>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Tentang Kami</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="./logo-01.jpg" alt="MUCACHIPS" />
-                </div>
-                <div class="about-text">
-                    <p>MUCACHIPS adalah pelopor dalam inovasi camilan sehat berbahan dasar pelepah pisang. Kami berkomitmen untuk menghadirkan produk berkualitas tinggi yang tidak hanya lezat, tetapi juga ramah lingkungan.</p>
-                    <p>Didirikan pada tahun 2024, MUCACHIPS telah berkembang menjadi merek terkemuka dalam industri makanan ringan alternatif. Kami bangga dapat mengubah limbah pertanian menjadi camilan lezat yang dinikmati oleh ribuan pelanggan di seluruh Indonesia.</p>
-                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="contact" class="contact container">
-        <h2>Hubungi Kami</h2>
-        <div class="contact-content">
-            <form class="contact-form">
-                <input type="text" placeholder="Nama Anda" required>
-                <input type="email" placeholder="Email Anda" required>
-                <textarea placeholder="Pesan Anda" required></textarea>
-                <button type="submit" class="btn">Kirim Pesan</button>
-            </form>
-            <div class="contact-info">
-                <h3>Informasi Kontak</h3>
-                <p><strong>Alamat:</strong> Jl. Cakrawala No.5, Sumbersari, Kec. Lowokwaru, Kota Malang, Jawa Timur 65145</p>
-                <p><strong>No. Telepon:</strong> +62 815-5437-0247</p>
-                <p><strong>Email:</strong> <a href="mailto:aqil.zulkaisi.2103126@students.um.ac.id
-                    ">aqil.zulkaisi.2103126@students.um.ac.id</a></p>
-            </div>
-        </div>
-    </section>
+    <script src="mucachips.js" defer></script>
 </body>
 </html>
