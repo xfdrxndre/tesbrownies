@@ -202,6 +202,7 @@ nav ul li a:hover {
     transition: all 0.3s ease;
     border: 2px solid transparent;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn:hover {
