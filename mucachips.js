@@ -95,3 +95,55 @@ document.addEventListener('DOMContentLoaded', function() {
         quantityInput.addEventListener('input', updateTotal);
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Hentikan observasi setelah animasi
+            }
+        });
+    }, observerOptions);
+
+    // Tambahkan class fade-in ke semua elemen yang ingin dianimasi
+    const fadeElements = document.querySelectorAll('.product-card, .about-content, .contact-info');
+    fadeElements.forEach(element => {
+        element.classList.add('fade-in');
+        observer.observe(element);
+    });
+});
+
+// Tambahkan efek ripple pada tombol
+function createRipple(event) {
+    const button = event.currentTarget;
+    const ripple = document.createElement('span');
+    const rect = button.getBoundingClientRect();
+    
+    const diameter = Math.max(rect.width, rect.height);
+    const radius = diameter / 2;
+    
+    ripple.style.width = ripple.style.height = `${diameter}px`;
+    ripple.style.left = `${event.clientX - rect.left - radius}px`;
+    ripple.style.top = `${event.clientY - rect.top - radius}px`;
+    ripple.classList.add('ripple');
+    
+    const rippleContainer = button.getElementsByClassName('ripple')[0];
+    if (rippleContainer) {
+        rippleContainer.remove();
+    }
+    
+    button.appendChild(ripple);
+}
+
+// Tambahkan event listener untuk efek ripple pada semua tombol
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(button => {
+    button.addEventListener('click', createRipple);
+});
