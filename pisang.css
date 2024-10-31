@@ -171,8 +171,10 @@ nav {
 }
 
 .about-image img {
-    width: 100%;
-    border-radius: 10px;
+    max-width: 300px; /* Sesuaikan ukuran maksimal yang diinginkan */
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .about-text {
