@@ -29,6 +29,7 @@
             </nav>
         </div>
     </header>
+
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
@@ -139,40 +140,5 @@
     </section>
 
     <script src="mucachips.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const learnMoreBtn = document.querySelector('.learn-more');
-            const additionalInfo = document.querySelector('.additional-info');
-            
-            learnMoreBtn.addEventListener('click', function() {
-                if (additionalInfo.style.display === 'none') {
-                    additionalInfo.style.display = 'block';
-                    this.textContent = 'Sembunyikan';
-                } else {
-                    additionalInfo.style.display = 'none';
-                    this.textContent = 'Pelajari Lebih Lanjut';
-                }
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
