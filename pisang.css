@@ -6,76 +6,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5dc; /* Warna latar belakang */
-}
-
-h1 {
-    color: #2f4f4f; /* Warna teks */
-    font-size: 36px; /* Ukuran teks */
-    margin: 0;
-}
-html {
-    scroll-behavior: smooth;
-    overflow-y: auto; /* Tambahkan ini */
-}
-
-/* Container */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Atur tinggi container sesuai kebutuhan */
-}
-
-/* Header & Navigation */
-header {
-    background-color: #FFF9E0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    text-align: center;
-    padding: 20px 0; /* Padding untuk memberikan ruang di atas dan bawah teks */
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.logo h1 {
-    color: #2D5A27;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-menu a {
-    color: #2D5A27;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav-menu a:hover {
-    color: #1E3A1F;
-}
-
-.nav-toggle {
-    display: none;
-}
-
 /* Hero Section */
 .hero {
     padding: 120px 0 50px;
@@ -150,11 +80,6 @@ nav {
     align-items: center;
     position: relative;
     animation: slideInRight 0.8s ease-out;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
 }
 
 .hero-banner {
@@ -274,7 +199,6 @@ nav {
         font-size: 1.1rem;
     }
 }
-
 /* Products Section */
 .products {
     padding: 80px 0;
