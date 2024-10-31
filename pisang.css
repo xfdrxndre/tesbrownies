@@ -212,13 +212,14 @@ nav {
     .hero {
         flex-direction: row;
         justify-content: space-between;
-        padding: 40px;
+        padding: 20px;
     }
 
     .hero-content {
         flex: 1;
         text-align: left;
         padding-right: 40px;
+        margin-right: 20px;
     }
 
     .hero-image {
