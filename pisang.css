@@ -208,6 +208,21 @@ nav {
     }
 }
 
+/* Debugging CSS - hapus setelah selesai */
+@media (max-width: 428px) {
+    .hero * {
+        outline: 1px solid red;
+    }
+    
+    .hero-content {
+        outline: 1px solid blue;
+    }
+    
+    .container {
+        outline: 1px solid green;
+    }
+}
+
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
