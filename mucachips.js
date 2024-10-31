@@ -88,39 +88,24 @@ window.onclick = function(event) {
     }
 }
 
-// Tambahkan event listener saat dokumen dimuat
-document.addEventListener('DOMContentLoaded', function() {
-    const orderForm = document.getElementById('orderForm');
-    if (orderForm) {
-        orderForm.addEventListener('submit', submitOrder);
+document.addEventListener("DOMContentLoaded", function() {
+  const learnMoreButton = document.querySelector(".learn-more");
+  const additionalInfo = document.querySelector(".additional-info");
+
+  // Sembunyikan tambahan info di awal
+  additionalInfo.style.display = "none";
+
+  // Fungsi untuk menampilkan atau menyembunyikan tambahan info
+  learnMoreButton.addEventListener("click", function() {
+    if (additionalInfo.style.display === "none") {
+      additionalInfo.style.display = "block";
+      learnMoreButton.textContent = "Tutup";
+    } else {
+      additionalInfo.style.display = "none";
+      learnMoreButton.textContent = "Pelajari Lebih Lanjut";
     }
-
-    const quantityInput = document.getElementById('quantity');
-    if (quantityInput) {
-        quantityInput.addEventListener('change', updateTotal);
-        quantityInput.addEventListener('input', updateTotal);
-    }
-
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav');
-    navToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!nav.contains(e.target) && !navToggle.contains(e.target)) {
-            nav.classList.remove('active');
-        }
-    });
-
-    // Close menu when clicking a link
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            nav.classList.remove('active');
-        });
-    });
+  });
+});
 
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
