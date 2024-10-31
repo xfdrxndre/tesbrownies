@@ -222,8 +222,8 @@ nav {
   .hero-title,
   .hero-description,
   .btn.btn-primary {
-    font-size: auto; /* Sesuaikan ukuran font untuk tampilan mobile */
-    width: auto; /* Atur lebar penuh untuk elemen */
+    font-size: 2.5rem; /* Sesuaikan ukuran font untuk tampilan mobile */
+    width: 100%; /* Atur lebar penuh untuk elemen */
     margin-left: auto;
     margin-right: auto;
   }
@@ -245,6 +245,7 @@ nav {
     padding: 2rem; /* Tambahkan padding pada gambar hero */
   }
 }
+
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2.5rem;
