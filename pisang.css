@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Container */
 .container {
     max-width: 1200px;
@@ -13,12 +18,6 @@
 }
 
 /* Header & Navigation */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 header {
     background-color: #FFF9E0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -27,13 +26,6 @@ header {
     top: 0;
     z-index: 1000;
     padding: 15px 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
 }
 
 .hamburger {
@@ -46,35 +38,17 @@ header {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-color: #2D5A27;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #2D5A27;
-    margin: 5px 0;
-    transition: all 0.3s ease;
 }
 
 @media screen and (max-width: 768px) {
     .hamburger {
         display: block;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .nav-menu {
@@ -95,65 +69,13 @@ header {
     }
 }
 
-/* Media Query untuk Mobile */
-@media screen and (max-width: 768px) {
-    .hamburger {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    nav ul.nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #FFF9E0;
-        flex-direction: column;
-        padding: 20px 0;
-        gap: 15px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    nav ul.nav-menu.active {
-        display: flex;
-    }
-
-    nav ul li {
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 12px;
-        font-size: 1em;
-    }
-
-    /* Animasi hamburger menu */
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
-    }
-}
-
 /* Hero Section */
 .hero {
     padding: 100px 0 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FFF9E0; /* Warna kuning muda untuk background hero */
+    background-color: #FFF9E0;
 }
 
 .hero-content {
@@ -164,13 +86,13 @@ header {
 .hero-title {
     font-size: 3.5em;
     margin-bottom: 20px;
-    color: #2D5A27; /* Warna hijau tua untuk judul hero */
+    color: #2D5A27;
 }
 
 .hero-description {
     font-size: 1.2em;
     margin-bottom: 30px;
-    color: #3A7A33; /* Warna hijau yang lebih terang untuk deskripsi hero */
+    color: #3A7A33;
 }
 
 .hero-banner {
@@ -181,13 +103,13 @@ header {
 /* Products Section */
 .products {
     padding: 80px 0;
-    background-color: #FFFFFF; /* Background putih untuk kontras */
+    background-color: #FFFFFF;
 }
 
 .products h2 {
     text-align: center;
     margin-bottom: 50px;
-    color: #2D5A27; /* Warna hijau tua untuk judul produk */
+    color: #2D5A27;
 }
 
 .product-grid {
@@ -198,7 +120,7 @@ header {
 }
 
 .product-card {
-    background: #FFF9E0; /* Warna kuning muda untuk background kartu produk */
+    background: #FFF9E0;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -222,17 +144,17 @@ header {
 .product-title {
     font-size: 1.2em;
     margin-bottom: 10px;
-    color: #2D5A27; /* Warna hijau tua untuk judul produk */
+    color: #2D5A27;
 }
 
 .product-description {
-    color: #3A7A33; /* Warna hijau yang lebih terang untuk deskripsi produk */
+    color: #3A7A33;
     margin-bottom: 15px;
 }
 
 .product-price {
     font-weight: bold;
-    color: #2D5A27; /* Warna hijau tua untuk harga */
+    color: #2D5A27;
     margin-bottom: 15px;
 }
 
@@ -240,8 +162,8 @@ header {
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #2D5A27; /* Warna hijau tua untuk tombol */
-    color: #FFDE59; /* Warna kuning untuk teks tombol */
+    background-color: #2D5A27;
+    color: #FFDE59;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -250,7 +172,7 @@ header {
 }
 
 .btn:hover {
-    background-color: #3A7A33; /* Warna hijau yang lebih terang saat hover */
+    background-color: #3A7A33;
 }
 
 /* Modal */
@@ -281,7 +203,7 @@ header {
     top: 10px;
     font-size: 28px;
     cursor: pointer;
-    color: #2D5A27; /* Warna hijau tua untuk tombol close */
+    color: #2D5A27;
 }
 
 /* Form Styles */
@@ -289,14 +211,14 @@ form input, form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #2D5A27; /* Border hijau tua */
+    border: 1px solid #2D5A27;
     border-radius: 5px;
 }
 
 /* About Section */
 .about {
     padding: 80px 0;
-    background-color: #FFF9E0; /* Warna kuning muda untuk background about */
+    background-color: #FFF9E0;
 }
 
 .about-content {
@@ -320,13 +242,13 @@ form input, form textarea {
 
 .about-text p {
     margin-bottom: 20px;
-    color: #3A7A33; /* Warna hijau yang lebih terang untuk teks about */
+    color: #3A7A33;
 }
 
 /* Contact Section */
 .contact {
     padding: 80px 0;
-    background-color: #FFFFFF; /* Background putih untuk kontras */
+    background-color: #FFFFFF;
 }
 
 .contact-content {
@@ -337,448 +259,18 @@ form input, form textarea {
 
 .contact-info h3 {
     margin-bottom: 20px;
-    color: #2D5A27; /* Warna hijau tua untuk judul kontak */
+    color: #2D5A27;
 }
 
 .contact-info p {
     margin-bottom: 10px;
-    color: #3A7A33; /* Warna hijau yang lebih terang untuk teks kontak */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 120px;
-    }
-
-    .hero-banner {
-        max-width: 100%;
-        margin-top: 30px;
-    }
-
-    .about-content {
-        flex-direction: column;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-
-        nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-}
-
-/* Additional Utility Classes */
-.text-center {
-    text-align: center;
-}
-
-.mb-20 {
-    margin-bottom: 20px;
-}
-
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Selection Style */
-::selection {
-    background-color: #2D5A27; /* Warna hijau tua untuk seleksi teks */
-    color: #FFDE59; /* Warna kuning untuk teks yang diseleksi */
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #FFF9E0; /* Warna kuning muda untuk modal */
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #2D5A27; /* Border hijau tua */
-    width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
-}
-
-.close {
-    color: #2D5A27; /* Warna hijau tua untuk tombol close */
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #3A7A33; /* Warna hijau yang lebih terang saat hover */
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Form Styles (for both modal and contact form) */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: #2D5A27; /* Warna hijau tua untuk label */
-}
-
-form input,
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #2D5A27; /* Border hijau tua */
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-}
-
-form textarea {
-    height: 100px;
-    resize: vertical;
-}
-
-form button {
-    align-self: flex-start;
-    padding: 10px 20px;
-    background-color: #2D5A27; /* Warna hijau tua untuk tombol */
-    color: #FFDE59; /* Warna kuning untuk teks tombol */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #3A7A33; /* Warna hijau yang lebih terang saat hover */
-}
-
-/* Contact Section Specific Styles */
-.contact-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-}
-
-.contact-form {
-    flex: 1;
-}
-
-.contact-info {
-    flex: 1;
-}
-
-.about {
-    padding: 80px 20px;
-    background-color: #FFF9E0; /* Warna kuning muda untuk background about */
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-    color: #2D5A27; /* Warna hijau tua untuk judul bagian */
-}
-
-.about-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.about-image {
-    flex: 0 0 20%;
-    max-width: 200px;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-}
-
-.about-text {
-    flex: 0 0 80%;
-}
-
-.about-text p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-    color: #3A7A33; /* Warna hijau yang lebih terang untuk teks about */
-}
-
-.learn-more {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #2D5A27; /* Warna hijau tua untuk tombol */
-    color: #FFDE59; /* Warna kuning untuk teks tombol */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-}
-
-.learn-more:hover {
-    background-color: #3A7A33; /* Warna hijau yang lebih terang saat hover */
-}
-
-.additional-info {
-    display: none;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.info-section h3 {
-    color: #2D5A27; /* Warna hijau tua untuk judul info */
-    margin-bottom: 15px;
-    font-size: 1.3em;
-}
-
-.info-section p {
-    margin-bottom: 15px;
-    color: #3A7A33; /* Warna hijau yang lebih terang untuk teks info */
-}
-
-.info-section ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-
-.info-section li {
-    margin-bottom: 8px;
-    color: #3A7A33; /* Warna hijau yang lebih terang untuk list item */
-    line-height: 1.6;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-content {
-        flex-direction: column;
-    }
-
-    .about-image,
-    .about-text {
-        flex: 0 0 100%;
-    }
-
-    .about-image {
-        margin-bottom: 30px;
-    }
-
-    .section-title {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 480px) {
-    .about {
-        padding: 40px 15px;
-    }
-
-    .section-title {
-        font-size: 1.8em;
-    }
-
-    .learn-more {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .additional-info {
-        padding: 15px;
-        margin-top: 15px;
-    }
-    
-    .additional-info h3 {
-        font-size: 1.1em;
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .contact-content {
-        flex-direction: column;
-    }
-    
-    .modal-content {
-        width: 95%;
-        margin: 10% auto;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Header & Navigation */
-    header {
-        padding: 10px 0;
-    }
-
-    nav ul {
-        flex-direction: column;
-        padding: 10px 0;
-        background-color: #FFDE59; /* Warna kuning untuk background menu mobile */
-    }
-
-    nav ul li {
-        margin: 8px 0;
-        text-align: center;
-    }
-
-    /* Hero Section */
-    .hero {
-        padding: 80px 20px 40px;
-        flex-direction: column;
-    }
-
-    .hero-content {
-        padding: 0;
-        text-align: center;
-    }
-
-    .hero-title {
-        font-size: 2.5em;
-    }
-
-    .hero-description {
-        font-size: 1em;
-    }
-
-    .hero-banner {
-        max-width: 100%;
-        margin-top: 30px;
-    }
-
-    /* Products Section */
-    .products {
-        padding: 40px 20px;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .product-card {
-        margin: 0 auto;
-        max-width: 350px;
-    }
-
-    /* About Section */
-    .about {
-        padding: 40px 20px;
-    }
-
-    .about-content {
-        flex-direction: column;
-    }
-
-    .about-image {
-        margin: 0 auto 20px;
-        max-width: 150px;
-    }
-
-    .about-text {
-        text-align: center;
-    }
-
-    .learn-more {
-        display: block;
-        width: 100%;
-        margin: 20px auto;
-    }
-
-    .additional-info {
-        margin-top: 20px;
-        padding: 15px;
-    }
-
-    /* Contact Section */
-    .contact {
-        padding: 40px 20px;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .contact-form,
-    .contact-info {
-        padding: 0;
-    }
-
-    /* Form Elements */
-    form input,
-    form textarea {
-        padding: 12px;
-        font-size: 16px;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 15px;
-        font-size: 16px;
-    }
-}
-
-/* Tambahan untuk layar yang lebih kecil */
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2em;
-    }
-
-    .section-title {
-        font-size: 1.8em;
-    }
-
-    .product-card {
-        max-width: 100%;
-    }
-
-    .modal-content {
-        width: 95%;
-        margin: 5% auto;
-        padding: 15px;
-    }
+    color: #3A7A33;
 }
 
 /* Footer Styles */
 footer {
-    background-color: #2D5A27; /* Warna hijau tua untuk footer */
-    color: #FFDE59; /* Warna kuning untuk teks footer */
+    background-color: #2D5A27;
+    color: #FFDE59;
     padding: 40px 0;
     margin-top: 40px;
 }
@@ -799,42 +291,45 @@ footer {
 }
 
 .footer-section h3 {
-    color: #FFDE59; /* Warna kuning untuk judul footer */
+    color: #FFDE59;
     margin-bottom: 20px;
 }
 
 .footer-section p,
 .footer-section a {
-    color: #FFF9E0; /* Warna kuning muda untuk teks footer */
+    color: #FFF9E0;
     text-decoration: none;
     margin-bottom: 10px;
     display: block;
 }
 
 .footer-section a:hover {
-    color: #FFDE59; /* Warna kuning untuk hover link footer */
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.social-links a {
-    color: #FFDE59; /* Warna kuning untuk ikon sosial media */
-    font-size: 20px;
-}
-
-.social-links a:hover {
-    color: #FFF9E0; /* Warna kuning muda untuk hover ikon */
+    color: #FFDE59;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
     margin-top: 40px;
-    border-top: 1px solid #3A7A33; /* Border hijau yang lebih terang */
+    border-top: 1px solid #3A7A33;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFF9E0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2D5A27;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3A7A33;
 }
 
 /* Animations */
@@ -851,22 +346,4 @@ footer {
 
 .fade-in {
     animation: fadeIn 0.5s ease-out;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #FFF9E0; /* Warna kuning muda untuk track scrollbar */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #2D5A27; /* Warna hijau tua untuk thumb scrollbar */
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #3A7A33; /* Warna hijau yang lebih terang untuk hover thumb */
 }
