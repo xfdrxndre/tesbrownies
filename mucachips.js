@@ -1,37 +1,41 @@
 // Ganti URL ini dengan URL Google Apps Script Anda
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznoObsh4CSBhZv26Ur3x3zVe66CykFKAvUWuBc12UnvyjgIHNoPECkzs4t_yU7ry2f/exec';
-// Variabel global untuk menyimpan harga produk saat ini
 let currentPrice = 0;
+let isFormSubmitting = false; // Flag untuk mencegah multiple submission
 
-// Fungsi untuk membuka form pembelian
 function openBuyForm(productName, price) {
     currentPrice = price;
     document.getElementById('productName').textContent = productName;
     document.getElementById('totalPrice').textContent = price.toLocaleString();
     document.getElementById('buyModal').style.display = 'block';
-    updateTotal(); // Update total saat pertama kali dibuka
+    updateTotal();
 }
 
-// Fungsi untuk menutup form
 function closeBuyForm() {
-    document.getElementById('buyModal').style.display = 'none';
-    // Reset form dengan timeout untuk memastikan data tidak hilang sebelum WhatsApp terbuka
-    setTimeout(() => {
-        document.getElementById('orderForm').reset();
-        document.getElementById('totalPrice').textContent = '0';
-    }, 1000);
+    // Hanya tutup modal jika form tidak sedang dalam proses submit
+    if (!isFormSubmitting) {
+        document.getElementById('buyModal').style.display = 'none';
+        resetForm();
+    }
 }
 
-// Fungsi untuk update total harga
+function resetForm() {
+    document.getElementById('orderForm').reset();
+    document.getElementById('totalPrice').textContent = currentPrice.toLocaleString();
+    isFormSubmitting = false;
+}
+
 function updateTotal() {
     const quantity = document.getElementById('quantity').value;
     const total = currentPrice * quantity;
     document.getElementById('totalPrice').textContent = total.toLocaleString();
 }
 
-// Fungsi untuk submit pesanan
 function submitOrder(event) {
     event.preventDefault();
+    
+    if (isFormSubmitting) return; // Mencegah multiple submission
+    isFormSubmitting = true;
     
     // Ambil semua data form
     const formData = {
@@ -42,6 +46,13 @@ function submitOrder(event) {
         quantity: document.getElementById('quantity').value,
         total: document.getElementById('totalPrice').textContent
     };
+
+    // Validasi form
+    if (!formData.name || !formData.email || !formData.phone || !formData.quantity) {
+        alert('Mohon isi semua field yang diperlukan');
+        isFormSubmitting = false;
+        return;
+    }
 
     // Membuat pesan WhatsApp
     const message = encodeURIComponent(
@@ -56,20 +67,16 @@ function submitOrder(event) {
         `Mohon diproses, terima kasih!`
     );
 
-    // Ganti nomor WhatsApp admin di sini
     const adminPhone = '6281554370247';
     
     // Buka WhatsApp di tab baru
     window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
     
-    // Tutup modal setelah membuka WhatsApp
-    closeBuyForm();
-    
-    // Reset form setelah beberapa detik
+    // Tunggu sebentar sebelum menutup modal dan reset form
     setTimeout(() => {
-        document.getElementById('orderForm').reset();
-        updateTotal();
-    }, 1500);
+        document.getElementById('buyModal').style.display = 'none';
+        setTimeout(resetForm, 500); // Reset form setelah modal tertutup
+    }, 1000);
 }
 
 // Event listener untuk menutup modal saat klik di luar modal
@@ -82,13 +89,11 @@ window.onclick = function(event) {
 
 // Tambahkan event listener saat dokumen dimuat
 document.addEventListener('DOMContentLoaded', function() {
-    // Tambahkan event listener untuk form
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
         orderForm.addEventListener('submit', submitOrder);
     }
     
-    // Tambahkan event listener untuk quantity
     const quantityInput = document.getElementById('quantity');
     if (quantityInput) {
         quantityInput.addEventListener('change', updateTotal);
