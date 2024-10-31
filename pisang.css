@@ -340,8 +340,8 @@ nav {
 }
 
 .additional-info {
-  display: none; /* Menyembunyikan bagian ini secara default */
-  margin-top: 20px;
+    display: none; /* Mulai dengan disembunyikan */
+    margin-top: 20px;
 }
 
 /* Contact Section */
