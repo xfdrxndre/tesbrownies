@@ -386,66 +386,126 @@ form button:hover {
     flex: 1;
 }
 
-.additional-info {
-    display: none;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+.about {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
 }
 
-.info-section {
-    margin-bottom: 20px;
-}
-
-.info-section h3 {
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
     color: #333;
-    margin-bottom: 10px;
-    font-size: 1.2em;
 }
 
-/* Styling khusus untuk bullet points Proses Pembuatan */
-.info-section:first-child ul {
-    list-style-type: disc;
-    padding-left: 40px; /* Menambah padding untuk bullet points */
-    margin-left: 20px; /* Menambah margin di sebelah kiri */
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
 }
 
-.info-section:first-child li {
-    margin-bottom: 8px;
-    color: #555;
-    padding-left: 10px;
+.about-image {
+    flex: 0 0 40%;
 }
 
-/* Styling untuk bagian lainnya */
-.info-section:not(:first-child) ul {
-    list-style-type: disc;
-    padding-left: 20px;
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.info-section:not(:first-child) li {
-    margin-bottom: 8px;
+.about-text {
+    flex: 0 0 60%;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
     color: #555;
 }
 
 .learn-more {
-    margin: 20px 0;
+    display: inline-block;
+    padding: 12px 24px;
     background-color: #4a90e2;
     color: white;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 .learn-more:hover {
     background-color: #357abd;
 }
 
-.show-info {
-    display: block;
+.additional-info {
+    display: none;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.info-section p {
+    margin-bottom: 15px;
+}
+
+.info-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.info-section li {
+    margin-bottom: 8px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image,
+    .about-text {
+        flex: 0 0 100%;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .about {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .learn-more {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
