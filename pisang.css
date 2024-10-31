@@ -5,17 +5,16 @@
     box-sizing: border-box;
 }
 
-/* Ubah bagian ini di awal CSS Anda */
 html, body {
     height: 100%;
     width: 100%;
-    overflow-x: hidden; /* Tetap mencegah scroll horizontal */
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    overflow-y: auto; /* Mengaktifkan scroll vertikal */
+    overflow-y: auto;
     position: relative;
-    min-height: 100vh; /* Memastikan body minimal setinggi viewport */
 }
 
 /* Tambahkan ini untuk memastikan konten utama memiliki ruang yang cukup */
