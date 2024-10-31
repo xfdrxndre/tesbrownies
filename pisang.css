@@ -397,7 +397,7 @@ form button:hover {
 
 .info-section {
     margin-bottom: 20px;
-    padding-left: 50px; /* Menambah padding di sebelah kiri */
+    padding-left: 20px; /* Menambah padding di sebelah kiri */
 }
 
 .info-section h3 {
@@ -409,7 +409,7 @@ form button:hover {
 .info-section ul {
     list-style-type: disc;
     padding-left: 40px; /* Menambah padding untuk bullet points */
-    margin-left: 50px; /* Menambah margin di sebelah kiri */
+    margin-left: 20px; /* Menambah margin di sebelah kiri */
 }
 
 .info-section li {
