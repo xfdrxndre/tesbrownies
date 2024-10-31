@@ -212,25 +212,42 @@ nav {
     .hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 100px;
+        padding: 100px 0 50px;
+        width: 100%;
     }
-    
+
     .hero-content {
-        align-items: center; /* Ubah menjadi center untuk tampilan mobile */
+        flex: 1;
+        padding: 2rem 20px; /* Ubah padding */
+        align-items: center;
+        width: 100%;
+        margin: 0 auto; /* Tambahkan margin auto */
+        text-align: center;
     }
 
     .hero-title {
         font-size: 3rem;
-        text-align: center; /* Tambahkan ini */
+        text-align: center;
+        width: 100%; /* Tambahkan full width */
+        padding: 0 15px; /* Tambahkan padding kiri-kanan */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-description {
         font-size: 1.3rem;
-        text-align: center; /* Tambahkan ini */
-        margin-left: auto; /* Tambahkan ini */
-        margin-right: auto; /* Tambahkan ini */
+        text-align: center;
+        width: 100%; /* Tambahkan full width */
+        padding: 0 15px; /* Tambahkan padding kiri-kanan */
+        margin-left: auto;
+        margin-right: auto;
     }
 
+    .container {
+        padding: 0; /* Reset container padding untuk mobile */
+        width: 100%;
+    }
+    
     .btn.btn-primary {
         font-size: 1.1rem;
         padding: 12px 30px;
@@ -244,17 +261,48 @@ nav {
         padding: 2rem;
     }
 
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .hero-description {
-        font-size: 1.3rem;
-    }
-
     .btn.btn-primary {
         font-size: 1.1rem;
         padding: 12px 30px;
+    }
+}
+
+/* Tambahkan media query khusus untuk iPhone */
+@media screen and (max-width: 428px) { /* iPhone 12 Pro Max width */
+    .hero-content {
+        padding: 1rem 10px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+    .btn.btn-primary {
+        margin: 0 auto;
+        display: inline-block;
+    }
+
+    .hero-image {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 }
 
