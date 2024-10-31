@@ -6,75 +6,43 @@ let isFormSubmitting = false; // Flag untuk mencegah multiple submission
 
 // Fungsi untuk membuka modal pemesanan
 function openBuyForm(productName, price) {
-    currentPrice = price;
-    document.getElementById('productName').textContent = productName;
-    document.getElementById('totalPrice').textContent = price.toLocaleString();
-    document.getElementById('buyModal').style.display = 'block';
-    updateTotal();
+  document.getElementById("productName").textContent = productName;
+  document.getElementById("totalPrice").textContent = price.toLocaleString();
+  document.getElementById("buyModal").style.display = "block";
 }
 
 // Fungsi untuk menutup modal pemesanan
 function closeBuyForm() {
-    if (!isFormSubmitting) {
-        document.getElementById('buyModal').style.display = 'none';
-        resetForm();
-    }
-}
-
-// Fungsi untuk mereset form pemesanan
-function resetForm() {
-    document.getElementById('orderForm').reset();
-    document.getElementById('totalPrice').textContent = currentPrice.toLocaleString();
-    isFormSubmitting = false;
-}
-
-// Fungsi untuk memperbarui total harga berdasarkan jumlah
-function updateTotal() {
-    const quantity = document.getElementById('quantity').value;
-    const total = currentPrice * quantity;
-    document.getElementById('totalPrice').textContent = total.toLocaleString();
+  document.getElementById("buyModal").style.display = "none";
 }
 
 // Fungsi untuk mengirim pesanan via WhatsApp
 function submitOrder(event) {
-    event.preventDefault();
-    if (isFormSubmitting) return;
+  event.preventDefault();
 
-    isFormSubmitting = true;
-    const formData = {
-        productName: document.getElementById('productName').textContent,
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        quantity: document.getElementById('quantity').value,
-        total: document.getElementById('totalPrice').textContent
-    };
+  // Ambil data dari formulir
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const quantity = document.getElementById("quantity").value;
+  const productName = document.getElementById("productName").textContent;
+  const totalPrice = parseFloat(document.getElementById("totalPrice").textContent.replace(/,/g, ''));
 
-    if (!formData.name || !formData.email || !formData.phone || !formData.quantity) {
-        alert('Mohon isi semua field yang diperlukan');
-        isFormSubmitting = false;
-        return;
-    }
+  // Buat pesan WhatsApp
+  let message = `Halo, saya ingin memesan *${productName}* dengan rincian sebagai berikut:\n\n`;
+  message += `Nama: ${name}\n`;
+  message += `Email: ${email}\n`;
+  message += `No. WhatsApp: ${phone}\n`;
+  message += `Jumlah: ${quantity}\n`;
+  message += `Total Harga: Rp ${totalPrice.toLocaleString()}\n\n`;
+  message += `Tolong segera konfirmasi pesanan saya. Terima kasih!`;
 
-    const message = encodeURIComponent(
-        `Halo, saya ingin memesan MUCACHIPS:\n\n` +
-        `Produk: ${formData.productName}\n` +
-        `Jumlah: ${formData.quantity}\n` +
-        `Total: Rp ${formData.total}\n\n` +
-        `Detail Pembeli:\n` +
-        `Nama: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `WhatsApp: ${formData.phone}\n\n` +
-        `Mohon diproses, terima kasih!`
-    );
+  // Buka tautan WhatsApp dengan pesan
+  const url = `https://wa.me/6281554370247?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
 
-    const adminPhone = '6281554370247';
-    window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
-
-    setTimeout(() => {
-        document.getElementById('buyModal').style.display = 'none';
-        setTimeout(resetForm, 500);
-    }, 1000);
+  // Tutup modal
+  closeBuyForm();
 }
 
 // Event listener untuk menutup modal saat klik di luar modal
