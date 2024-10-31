@@ -79,6 +79,7 @@ nav {
     justify-content: space-between;
     background-color: #FFF9E0;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .hero-content {
