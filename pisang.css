@@ -208,109 +208,43 @@ nav {
     }
 }
 
-@media (max-width: 768px) {    
-    .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 50px 0;
-        width: 100%;
-        overflow-x: hidden;
-    }
+/* Menyesuaikan tata letak elemen pada tampilan mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px; /* Sesuaikan jarak atas untuk tampilan mobile */
+    text-align: center;
+  }
 
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: 0 20px;
-        text-align: center;
-    }
+  .hero-content {
+    padding: 0 20px; /* Tambahkan padding kiri-kanan pada konten hero */
+  }
 
-    .hero-title,
-    .hero-description,
-    .btn.btn-primary {
-        font-size: 3rem;
-        text-align: center;
-        width: 100%; /* Tambahkan full width */
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .hero-title,
+  .hero-description,
+  .btn.btn-primary {
+    font-size: 2.5rem; /* Sesuaikan ukuran font untuk tampilan mobile */
+    width: 100%; /* Atur lebar penuh untuk elemen */
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .hero-description {
-        font-size: 1.3rem;
-        text-align: center;
-        width: 100%; /* Tambahkan full width */
-        padding: 0 15px; /* Tambahkan padding kiri-kanan */
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .hero-description {
+    font-size: 1.3rem; /* Sesuaikan ukuran font deskripsi untuk tampilan mobile */
+    padding: 0 15px; /* Tambahkan padding kiri-kanan pada deskripsi */
+  }
 
-    .container {
-        padding: 0; /* Reset container padding untuk mobile */
-        width: 100%;
-    }
-    
-    .btn.btn-primary {
-        font-size: 1.1rem;
-        padding: 12px 30px;
-        margin: 0 auto; /* Tambahkan ini */
-        display: block; /* Tambahkan ini */
-    }
+  .btn.btn-primary {
+    font-size: 1.1rem; /* Sesuaikan ukuran font tombol untuk tampilan mobile */
+    padding: 12px 30px; /* Sesuaikan padding tombol untuk tampilan mobile */
+    display: block; /* Atur tombol menjadi block untuk tampilan mobile */
+    margin: 0 auto; /* Sejajarkan tombol ke tengah */
+  }
 
-    .hero-image {
-        flex: 0 1 auto;
-        width: 100%;
-        padding: 2rem;
-    }
-
-    .btn.btn-primary {
-        font-size: 1.1rem;
-        padding: 12px 30px;
-    }
+  .hero-image {
+    width: 100%; /* Atur lebar gambar hero menjadi 100% untuk tampilan mobile */
+    padding: 2rem; /* Tambahkan padding pada gambar hero */
+  }
 }
-
-/* Tambahkan media query khusus untuk iPhone */
-@media screen and (max-width: 428px) { /* iPhone 12 Pro Max width */
-    .hero-content {
-        padding: 1rem 10px;
-        margin: 0;
-        width: 100%;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 10px;
-    }
-
-    .hero-description {
-        font-size: 1.1rem;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 10px;
-    }
-
-    .btn.btn-primary {
-        margin: 0 auto;
-        display: inline-block;
-    }
-
-    .hero-image {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    .container {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-}
-
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2.5rem;
