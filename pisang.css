@@ -208,25 +208,6 @@ nav {
     }
 }
 
-@media screen and (min-width: 769px) {
-    .hero {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 20px;
-    }
-
-    .hero-content {
-        flex: 1;
-        text-align: left;
-        padding-right: 40px;
-        margin-right: 20px;
-    }
-
-    .hero-image {
-        flex: 1;
-    }
-}
-
 @media (max-width: 768px) {    
     .hero {
         display: flex;
