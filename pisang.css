@@ -414,7 +414,10 @@ nav {
   background-color: #218838;
 }
 
-/* Styling modal */
+.main {
+    padding: 20px;
+}
+
 /* Styling modal */
 .modal {
   display: none;
