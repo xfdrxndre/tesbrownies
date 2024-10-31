@@ -19,6 +19,12 @@ body {
 }
 
 /* Header & Navigation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 header {
     background-color: #FFF9E0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -40,6 +46,7 @@ header {
     display: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 100;
 }
 
 .hamburger span {
@@ -51,7 +58,7 @@ header {
     transition: all 0.3s ease;
 }
 
-nav ul {
+nav ul.nav-menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +82,7 @@ nav ul li a:hover {
 }
 
 /* Media Query untuk Mobile */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .hamburger {
         display: block;
         position: absolute;
