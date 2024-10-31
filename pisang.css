@@ -20,36 +20,67 @@ body {
 
 /* Header & Navigation */
 header {
-    background-color: #FFDE59; /* Warna kuning untuk background header */
+    background-color: #FFF9E0; /* Warna kuning muda */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    padding: 15px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
-    padding: 20px 0;
+    margin: 0;
+    padding: 0;
+    gap: 30px; /* Spacing antara menu items */
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin: 0;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #2D5A27; /* Warna hijau tua untuk teks menu */
+    color: #2D5A27; /* Warna hijau tua */
     font-weight: 500;
-    transition: color 0.3s;
+    font-size: 1.1em;
+    padding: 10px;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #3A7A33; /* Warna hijau yang lebih terang saat hover */
+    color: #3A7A33; /* Warna hijau lebih terang */
 }
 
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 15px;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px;
+        font-size: 1em;
+    }
+}
 /* Hero Section */
 .hero {
     padding: 100px 0 50px;
