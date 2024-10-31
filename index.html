@@ -85,19 +85,41 @@
     <script src="mucachips.js"></script>
 
     <section id="about" class="about">
-        <div class="container">
-            <h2>Tentang Kami</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="./logo-01.jpg" alt="MUCACHIPS" />
-                </div>
-                <div class="about-text">
-                    <p>MUCACHIPS adalah pelopor dalam inovasi camilan sehat berbahan dasar pelepah pisang. Kami berkomitmen untuk menghadirkan produk berkualitas tinggi yang tidak hanya lezat, tetapi juga ramah lingkungan.</p>
-                    <p>Didirikan pada tahun 2024, MUCACHIPS telah berkembang menjadi merek terkemuka dalam industri makanan ringan alternatif. Kami bangga dapat mengubah limbah pertanian menjadi camilan lezat yang dinikmati oleh ribuan pelanggan di seluruh Indonesia.</p>
-                    <a href="#" class="btn">Pelajari Lebih Lanjut</a>
+    <div class="container">
+        <h2>Tentang Kami</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="./logo-01.jpg" alt="MUCACHIPS" />
+            </div>
+            <div class="about-text">
+                <p>MUCACHIPS adalah pelopor dalam inovasi camilan sehat berbahan dasar pelepah pisang. Kami berkomitmen untuk menghadirkan produk berkualitas tinggi yang tidak hanya lezat, tetapi juga ramah lingkungan.</p>
+                <p>Didirikan pada tahun 2024, MUCACHIPS telah berkembang menjadi merek terkemuka dalam industri makanan ringan alternatif. Kami bangga dapat mengubah limbah pertanian menjadi camilan lezat yang dinikmati oleh ribuan pelanggan di seluruh Indonesia.</p>
+                <button class="btn learn-more">Pelajari Lebih Lanjut</button>
+                <div class="additional-info" style="display: none;">
+                    <h3>Visi Kami</h3>
+                    <p>Menjadi perusahaan makanan ringan inovatif terdepan yang mengutamakan keberlanjutan dan kepuasan pelanggan.</p>
+                    
+                    <h3>Misi Kami</h3>
+                    <ul>
+                        <li>Menghasilkan produk berkualitas tinggi dengan bahan baku alami</li>
+                        <li>Mengurangi limbah pertanian melalui inovasi produk</li>
+                        <li>Memberdayakan petani lokal dan menciptakan lapangan kerja</li>
+                    </ul>
+                    
+                    <h3>Keunggulan Produk</h3>
+                    <ul>
+                        <li>100% menggunakan bahan alami</li>
+                        <li>Tanpa pengawet</li>
+                        <li>Proses produksi higienis</li>
+                        <li>Ramah lingkungan</li>
+                    </ul>
+                    
+                    <h3>Sertifikasi</h3>
+                    <p>Produk kami telah tersertifikasi BPOM dan Halal MUI, menjamin keamanan dan kehalalannya.</p>
                 </div>
             </div>
         </div>
+    </div>
     </section>
     <section id="contact" class="contact container">
         <h2>Hubungi Kami</h2>
@@ -117,5 +139,22 @@
             </div>
         </div>
     </section>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const learnMoreBtn = document.querySelector('.learn-more');
+    const additionalInfo = document.querySelector('.additional-info');
+    
+    learnMoreBtn.addEventListener('click', function() {
+        if (additionalInfo.style.display === 'none') {
+            additionalInfo.style.display = 'block';
+            this.textContent = 'Sembunyikan';
+        } else {
+            additionalInfo.style.display = 'none';
+            this.textContent = 'Pelajari Lebih Lanjut';
+        }
+    });
+});
+</script>
+
 </body>
 </html>
