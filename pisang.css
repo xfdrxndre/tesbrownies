@@ -8,7 +8,7 @@
 
 /* Container */
 .container {
-    max-width: 1200px;
+    max-width: 1000px; /* Ubah lebar maksimum sesuai kebutuhan */
     margin: 0 auto;
     padding: 0 20px;
 }
