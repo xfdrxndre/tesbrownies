@@ -1,303 +1,264 @@
 /* Reset CSS */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Container */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Header & Navigation */
 header {
-  background-color: #FFF9E0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  padding: 15px 0;
+    background-color: #FFF9E0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-.header .container {
-  position: relative;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
 }
 
-.hamburger {
-  display: none;
-  cursor: pointer;
-}
-
-.bar,
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  background-color: #2D5A27;
-  transition: all 0.3s ease-in-out;
-}
-
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+.logo h1 {
+    color: #2D5A27;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .nav-menu {
-  position: fixed;
-  left: -100%;
-  top: 70px;
-  gap: 0;
-  flex-direction: column;
-  background-color: #FFF9E0;
-  width: 100%;
-  text-align: center;
-  transition: 0.3s;
-  padding: 20px 0;
-}
-
-.nav-menu.active {
-  left: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .hamburger {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  nav ul.nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #FFF9E0;
-    flex-direction: column;
-    padding: 20px 0;
-    gap: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-
-  nav ul.nav-menu.active {
     display: flex;
-  }
+    list-style: none;
+    gap: 2rem;
+}
 
-  nav ul li {
-    width: 100%;
-    text-align: center;
-  }
+.nav-menu a {
+    color: #2D5A27;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
 
-  nav ul li a {
+.nav-menu a:hover {
+    color: #3A7A33;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
     display: block;
-    padding: 12px;
-    font-size: 1em;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 6px);
-  }
-
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -6px);
-  }
+    width: 25px;
+    height: 3px;
+    background-color: #2D5A27;
+    margin: 5px 0;
+    transition: all 0.3s ease;
 }
 
 /* Hero Section */
 .hero {
-  padding: 100px 0 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #FFF9E0; /* Warna kuning muda untuk background hero */
+    padding: 120px 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFF9E0;
+    min-height: 100vh;
 }
 
 .hero-content {
-  flex: 1;
-  padding: 0 50px;
+    flex: 1;
+    padding: 0 50px;
 }
 
 .hero-title {
-  font-size: 3.5em;
-  margin-bottom: 20px;
-  color: #2D5A27; /* Warna hijau tua untuk judul hero */
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #2D5A27;
 }
 
 .hero-description {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-  color: #3A7A33; /* Warna hijau yang lebih terang untuk deskripsi hero */
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #3A7A33;
 }
 
 .hero-banner {
-  max-width: 50%;
-  height: auto;
+    max-width: 50%;
+    height: auto;
 }
 
 /* Products Section */
 .products {
-  padding: 80px 0;
-  background-color: #FFFFFF; /* Background putih untuk kontras */
+    padding: 80px 0;
+    background-color: #FFFFFF;
 }
 
 .products h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  color: #2D5A27; /* Warna hijau tua untuk judul produk */
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2D5A27;
 }
 
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
 }
 
 .product-card {
-  background: #FFF9E0; /* Warna kuning muda untuk background kartu produk */
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+    background: #FFF9E0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .product-image img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
 .product-info {
-  padding: 20px;
+    padding: 20px;
 }
 
 .product-title {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  color: #2D5A27; /* Warna hijau tua untuk judul produk */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #2D5A27;
 }
 
 .product-description {
-  color: #3A7A33; /* Warna hijau yang lebih terang untuk deskripsi produk */
-  margin-bottom: 15px;
+    color: #3A7A33;
+    margin-bottom: 15px;
 }
 
 .product-price {
-  font-weight: bold;
-  color: #2D5A27; /* Warna hijau tua untuk harga */
-  margin-bottom: 15px;
+    font-weight: bold;
+    color: #2D5A27;
+    margin-bottom: 15px;
 }
 
 /* Buttons */
 .btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: #2D5A27; /* Warna hijau tua untuk tombol */
-  color: #FFDE59; /* Warna kuning untuk teks tombol */
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  border: none;
-  cursor: pointer;
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2D5A27;
+    color: #FFDE59;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
-  background-color: #3A7A33; /* Warna hijau yang lebih terang saat hover */
+    background-color: #3A7A33;
 }
 
 /* Modal */
 .modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 .modal-content {
-  background-color: #FFF9E0; /* Warna kuning muda untuk modal */
-  margin: 15% auto;
-  padding: 20px;
-  width: 80%;
-  max-width: 500px;
-  border-radius: 10px;
-  position: relative;
+    background-color: #FFF9E0;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
 }
 
 .close {
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  font-size: 28px;
-  cursor: pointer;
-  color: #2D5A27; /* Warna hijau tua untuk tombol close */
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #2D5A27;
 }
 
 /* Form Styles */
 form input,
 form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #2D5A27; /* Border hijau tua */
-  border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #2D5A27;
+    border-radius: 5px;
 }
 
 /* About Section */
 .about {
-  padding: 80px 0;
-  background-color: #FFF9E0; /* Warna kuning muda untuk background about */
+    padding: 80px 0;
+    background-color: #FFF9E0;
 }
 
 .about-content {
-  display: flex;
-  align-items: center;
-  gap: 50px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 0 20px;
 }
 
 .about-image {
-  flex: 1;
+    flex: 1;
 }
 
 .about-image img {
-  width: 100%;
-  border-radius: 10px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .about-text {
-  flex: 1;
+    flex: 1;
 }
 
 .about-text p {
-  margin-bottom: 20px;
-  color: #3A7A33; /* Warna hijau yang lebih terang untuk teks about */
+    margin-bottom: 20px;
+    color: #3A7A33;
 }
 
+.additional-info {
+    display: none;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
 /* Contact Section */
 .contact {
   padding: 80px 0;
