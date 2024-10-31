@@ -7,14 +7,17 @@
 }
 
 body {
-    line-height: 1.6;
-    color: #333;
-    background-color: #FFF9E0;
-    min-height: 100%;
-    overflow-y: auto; /* Tambahkan ini */
-    position: relative; /* Tambahkan ini */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5dc; /* Warna latar belakang */
 }
 
+h1 {
+    color: #2f4f4f; /* Warna teks */
+    font-size: 36px; /* Ukuran teks */
+    margin: 0;
+}
 html {
     scroll-behavior: smooth;
     overflow-y: auto; /* Tambahkan ini */
@@ -36,6 +39,8 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    text-align: center;
+    padding: 20px 0; /* Padding untuk memberikan ruang di atas dan bawah teks */
 }
 
 nav {
