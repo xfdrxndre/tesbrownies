@@ -15,44 +15,42 @@
 
 /* Header & Navigation */
 header {
-    background-color: #FFF9E0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    background-color: #FFF9E0; /* Light background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: fixed; /* Fixed header */
+    width: 100%; /* Full width */
+    top: 0; /* Align to top */
+    z-index: 1000; /* Ensure it is above other elements */
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    position: relative;
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    padding: 1rem 0; /* Vertical padding */
 }
 
 .logo h1 {
-    color: #2D5A27;
-    font-size: 1.5rem;
-    font-weight: 600;
+    color: #2D5A27; /* Logo text color */
+    font-size: 1.5rem; /* Font size for logo */
+    font-weight: 600; /* Semi-bold font weight */
 }
 
 .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+    display: flex; /* Flexbox for menu items */
+    list-style: none; /* Remove default list styling */
+    gap: 2rem; /* Space between menu items */
 }
 
 .nav-menu a {
-    color: #2D5A27;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+    color: #2D5A27; /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
+/* Add hover effect for links */
 .nav-menu a:hover {
-    color: #3A7A33;
+    color: #1E3A1F; /* Darker shade on hover */
 }
 
 .nav-toggle {
