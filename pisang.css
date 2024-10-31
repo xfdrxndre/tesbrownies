@@ -407,17 +407,20 @@ form button:hover {
 }
 
 .about-image {
-    flex: 0 0 40%;
+    flex: 0 0 30%; /* Mengubah dari 40% menjadi 30% */
+    max-width: 300px; /* Menambahkan max-width */
 }
 
 .about-image img {
     width: 100%;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
 }
 
 .about-text {
-    flex: 0 0 60%;
+    flex: 0 0 70%; /* Mengubah dari 60% menjadi 70% */
 }
 
 .about-text p {
