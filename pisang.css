@@ -223,28 +223,33 @@ nav {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) {    
     .hero {
+        display: flex;
         flex-direction: column;
-        text-align: center;
-        padding: 100px 0 50px;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
         width: 100%;
+        overflow-x: hidden;
     }
 
     .hero-content {
-        flex: 1;
-        padding: 2rem 20px; /* Ubah padding */
+        display: flex;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
         width: 100%;
-        margin: 0 auto; /* Tambahkan margin auto */
+        padding: 0 20px;
         text-align: center;
     }
 
-    .hero-title {
+    .hero-title,
+    .hero-description,
+    .btn.btn-primary {
         font-size: 3rem;
         text-align: center;
         width: 100%; /* Tambahkan full width */
-        padding: 0 15px; /* Tambahkan padding kiri-kanan */
         margin-left: auto;
         margin-right: auto;
     }
