@@ -88,25 +88,39 @@ window.onclick = function(event) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const learnMoreButton = document.querySelector(".learn-more");
-    const additionalInfo = document.querySelector(".additional-info");
+// Tambahkan event listener saat dokumen dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    const orderForm = document.getElementById('orderForm');
+    if (orderForm) {
+        orderForm.addEventListener('submit', submitOrder);
+    }
 
-    // Sembunyikan info tambahan di awal
-    additionalInfo.style.display = "none";
+    const quantityInput = document.getElementById('quantity');
+    if (quantityInput) {
+        quantityInput.addEventListener('change', updateTotal);
+        quantityInput.addEventListener('input', updateTotal);
+    }
 
-    // Event listener untuk klik tombol
-    learnMoreButton.addEventListener("click", function() {
-        console.log("Tombol diklik"); // Log ini untuk mengonfirmasi klik
-        if (additionalInfo.style.display === "none") {
-            additionalInfo.style.display = "block";
-            learnMoreButton.textContent = "Tutup";
-        } else {
-            additionalInfo.style.display = "none";
-            learnMoreButton.textContent = "Pelajari Lebih Lanjut";
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
+    navToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!nav.contains(e.target) && !navToggle.contains(e.target)) {
+            nav.classList.remove('active');
         }
     });
-});
+
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            nav.classList.remove('active');
+        });
+    });
 
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -138,3 +152,19 @@ document.addEventListener("DOMContentLoaded", function() {
         navMenuHamburger.classList.remove("active");
     }));
 });
+Aligning Image and Text in Hero Section - Claude
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
+        if (!isClickInside && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    });
