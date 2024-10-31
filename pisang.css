@@ -219,6 +219,26 @@ nav {
         flex: 0 1 auto;
         padding: 2rem;
         align-items: center;
+        width: 100%; /* Tambahkan ini */
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        text-align: center; /* Tambahkan ini */
+    }
+
+    .hero-description {
+        font-size: 1.3rem;
+        text-align: center; /* Tambahkan ini */
+        margin-left: auto; /* Tambahkan ini */
+        margin-right: auto; /* Tambahkan ini */
+    }
+
+    .btn.btn-primary {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+        margin: 0 auto; /* Tambahkan ini */
+        display: block; /* Tambahkan ini */
     }
 
     .hero-image {
