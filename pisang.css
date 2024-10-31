@@ -52,27 +52,44 @@ header {
     transition: all 0.3s ease;
 }
 
-nav ul.nav-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 30px;
-}
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
-nav ul li a {
-    text-decoration: none;
-    color: #2D5A27;
-    font-weight: 500;
-    font-size: 1.1em;
-    padding: 10px;
-    transition: color 0.3s ease;
-}
+    nav ul.nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #FFF9E0;
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-nav ul li a:hover {
-    color: #3A7A33;
+    nav ul.nav-menu.active {
+        display: flex;
+    }
+
+    /* Animasi hamburger menu */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
 }
 
 /* Media Query untuk Mobile */
