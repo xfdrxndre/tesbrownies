@@ -23,10 +23,10 @@ html {
 
 /* Container */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Atur tinggi container sesuai kebutuhan */
 }
 
 /* Header & Navigation */
@@ -146,6 +146,11 @@ nav {
     align-items: center;
     position: relative;
     animation: slideInRight 0.8s ease-out;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
 }
 
 .hero-banner {
