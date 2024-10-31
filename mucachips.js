@@ -1,178 +1,154 @@
-// Configuration
-const CONFIG = {
-    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbznoObsh4CSBhZv26Ur3x3zVe66CykFKAvUWuBc12UnvyjgIHNoPECkzs4t_yU7ry2f/exec',
-    ADMIN_PHONE: '6281554370247'
-};
+// Ganti URL ini dengan URL Google Apps Script Anda
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznoObsh4CSBhZv26Ur3x3zVe66CykFKAvUWuBc12UnvyjgIHNoPECkzs4t_yU7ry2f/exec';
 
-// State Management
-const state = {
-    currentPrice: 0,
-    isFormSubmitting: false
-};
+let currentPrice = 0;
+let isFormSubmitting = false; // Flag untuk mencegah multiple submission
 
-// Form Handling Functions
-const formHandlers = {
-    openBuyForm(productName, price) {
-        state.currentPrice = price;
-        document.getElementById('productName').textContent = productName;
-        document.getElementById('totalPrice').textContent = price.toLocaleString();
-        document.getElementById('buyModal').style.display = 'block';
-        this.updateTotal();
-    },
+function openBuyForm(productName, price) {
+    currentPrice = price;
+    document.getElementById('productName').textContent = productName;
+    document.getElementById('totalPrice').textContent = price.toLocaleString();
+    document.getElementById('buyModal').style.display = 'block';
+    updateTotal();
+}
 
-    closeBuyForm() {
-        if (!state.isFormSubmitting) {
-            document.getElementById('buyModal').style.display = 'none';
-            this.resetForm();
-        }
-    },
-
-    resetForm() {
-        document.getElementById('orderForm').reset();
-        document.getElementById('totalPrice').textContent = state.currentPrice.toLocaleString();
-        state.isFormSubmitting = false;
-    },
-
-    updateTotal() {
-        const quantity = document.getElementById('quantity').value;
-        const total = state.currentPrice * quantity;
-        document.getElementById('totalPrice').textContent = total.toLocaleString();
-    },
-
-    async submitOrder(event) {
-        event.preventDefault();
-        if (state.isFormSubmitting) return;
-        
-        state.isFormSubmitting = true;
-
-        // Get form data
-        const formData = {
-            productName: document.getElementById('productName').textContent,
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            quantity: document.getElementById('quantity').value,
-            total: document.getElementById('totalPrice').textContent
-        };
-
-        // Validate form
-        if (!this.validateForm(formData)) {
-            state.isFormSubmitting = false;
-            return;
-        }
-
-        // Create WhatsApp message
-        const message = this.createWhatsAppMessage(formData);
-
-        // Open WhatsApp in new tab
-        window.open(`https://wa.me/${CONFIG.ADMIN_PHONE}?text=${message}`, '_blank');
-
-        // Close modal and reset form
-        setTimeout(() => {
-            document.getElementById('buyModal').style.display = 'none';
-            setTimeout(() => this.resetForm(), 500);
-        }, 1000);
-    },
-
-    validateForm(formData) {
-        if (!formData.name || !formData.email || !formData.phone || !formData.quantity) {
-            alert('Mohon isi semua field yang diperlukan');
-            return false;
-        }
-        return true;
-    },
-
-    createWhatsAppMessage(formData) {
-        return encodeURIComponent(
-            `Halo, saya ingin memesan MUCACHIPS:\n\n` +
-            `Produk: ${formData.productName}\n` +
-            `Jumlah: ${formData.quantity}\n` +
-            `Total: Rp ${formData.total}\n\n` +
-            `Detail Pembeli:\n` +
-            `Nama: ${formData.name}\n` +
-            `Email: ${formData.email}\n` +
-            `WhatsApp: ${formData.phone}\n\n` +
-            `Mohon diproses, terima kasih!`
-        );
+function closeBuyForm() {
+    // Hanya tutup modal jika form tidak sedang dalam proses submit
+    if (!isFormSubmitting) {
+        document.getElementById('buyModal').style.display = 'none';
+        resetForm();
     }
-};
+}
 
-// Navigation Menu Handlers
-const navigationHandlers = {
-    toggleMenu(navMenu, toggleButton) {
-        navMenu.classList.toggle('active');
-        toggleButton.classList.toggle('active');
-    },
+function resetForm() {
+    document.getElementById('orderForm').reset();
+    document.getElementById('totalPrice').textContent = currentPrice.toLocaleString();
+    isFormSubmitting = false;
+}
 
-    closeMenu(navMenu, toggleButton) {
-        navMenu.classList.remove('active');
-        toggleButton.classList.remove('active');
-    },
+function updateTotal() {
+    const quantity = document.getElementById('quantity').value;
+    const total = currentPrice * quantity;
+    document.getElementById('totalPrice').textContent = total.toLocaleString();
+}
 
-    setupNavigation() {
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+function submitOrder(event) {
+    event.preventDefault();
 
-        if (hamburger && navMenu) {
-            // Hamburger click event
-            hamburger.addEventListener('click', () => {
-                this.toggleMenu(navMenu, hamburger);
-            });
+    if (isFormSubmitting) return; // Mencegah multiple submission
+    isFormSubmitting = true;
 
-            // Navigation link click events
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    this.closeMenu(navMenu, hamburger);
-                });
-            });
+    // Ambil semua data form
+    const formData = {
+        productName: document.getElementById('productName').textContent,
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        quantity: document.getElementById('quantity').value,
+        total: document.getElementById('totalPrice').textContent
+    };
 
-            // Click outside navigation
-            document.addEventListener('click', (event) => {
-                const isClickInside = navMenu.contains(event.target) || 
-                                    hamburger.contains(event.target);
-                
-                if (!isClickInside && navMenu.classList.contains('active')) {
-                    this.closeMenu(navMenu, hamburger);
-                }
-            });
-        }
+    // Validasi form
+    if (!formData.name || !formData.email || !formData.phone || !formData.quantity) {
+        alert('Mohon isi semua field yang diperlukan');
+        isFormSubmitting = false;
+        return;
     }
-};
 
-// Modal Handlers
-const modalHandlers = {
-    setupModal() {
-        window.onclick = (event) => {
-            const modal = document.getElementById('buyModal');
-            if (event.target === modal) {
-                formHandlers.closeBuyForm();
-            }
-        };
+    // Membuat pesan WhatsApp
+    const message = encodeURIComponent(
+        `Halo, saya ingin memesan MUCACHIPS:\n\n` +
+        `Produk: ${formData.productName}\n` +
+        `Jumlah: ${formData.quantity}\n` +
+        `Total: Rp ${formData.total}\n\n` +
+        `Detail Pembeli:\n` +
+        `Nama: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `WhatsApp: ${formData.phone}\n\n` +
+        `Mohon diproses, terima kasih!`
+    );
+
+    const adminPhone = '6281554370247';
+
+    // Buka WhatsApp di tab baru
+    window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
+
+    // Tunggu sebentar sebelum menutup modal dan reset form
+    setTimeout(() => {
+        document.getElementById('buyModal').style.display = 'none';
+        setTimeout(resetForm, 500); // Reset form setelah modal tertutup
+    }, 1000);
+}
+
+// Event listener untuk menutup modal saat klik di luar modal
+window.onclick = function(event) {
+    const modal = document.getElementById('buyModal');
+    if (event.target == modal) {
+        closeBuyForm();
     }
-};
+}
 
-// Initialize Application
+// Tambahkan event listener saat dokumen dimuat
 document.addEventListener('DOMContentLoaded', function() {
-    // Setup Form Events
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
-        orderForm.addEventListener('submit', (e) => formHandlers.submitOrder(e));
+        orderForm.addEventListener('submit', submitOrder);
     }
 
-    // Setup Quantity Input Events
     const quantityInput = document.getElementById('quantity');
     if (quantityInput) {
-        quantityInput.addEventListener('change', () => formHandlers.updateTotal());
-        quantityInput.addEventListener('input', () => formHandlers.updateTotal());
+        quantityInput.addEventListener('change', updateTotal);
+        quantityInput.addEventListener('input', updateTotal);
     }
 
-    // Setup Navigation
-    navigationHandlers.setupNavigation();
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
+    navToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+    });
 
-    // Setup Modal
-    modalHandlers.setupModal();
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!nav.contains(e.target) && !navToggle.contains(e.target)) {
+            nav.classList.remove('active');
+        }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            nav.classList.remove('active');
+        });
+    });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
+        if (!isClickInside && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    });
+
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+        console.log("Hamburger clicked!"); // Untuk debugging
+    });
+
+    document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }));
 });
-
-// Make necessary functions globally available
-window.openBuyForm = (productName, price) => formHandlers.openBuyForm(productName, price);
-window.closeBuyForm = () => formHandlers.closeBuyForm();
