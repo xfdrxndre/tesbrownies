@@ -26,6 +26,7 @@ html {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
 }
 
 /* Header & Navigation */
@@ -279,6 +280,7 @@ nav {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    overflow-y: auto;
 }
 
 .modal-content {
