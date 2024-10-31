@@ -334,3 +334,17 @@ html {
   background-color: #2D5A27; /* Warna hijau tua untuk highlight */
   color: #FFDE59; /* Warna kuning untuk teks highlight */
 }
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 10px; /* Kurangi padding pada layar kecil */
+    }
+
+    .product-grid {
+        padding: 0 10px; /* Kurangi padding pada produk */
+    }
+
+    .about-content {
+        gap: 20px; /* Kurangi jarak antar elemen */
+    }
+}
