@@ -217,6 +217,7 @@ nav {
 
   .hero-content {
     padding: 0 20px; /* Tambahkan padding kiri-kanan pada konten hero */
+    margin: 0 auto;
   }
 
   .hero-title,
@@ -243,6 +244,10 @@ nav {
   .hero-image {
     width: 100%; /* Atur lebar gambar hero menjadi 100% untuk tampilan mobile */
     padding: 2rem; /* Tambahkan padding pada gambar hero */
+  }
+
+  .about-text p {
+    text-align: justify;
   }
 }
 
