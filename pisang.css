@@ -20,7 +20,7 @@ body {
 
 /* Header & Navigation */
 header {
-    background-color: #FFF9E0; /* Warna kuning muda */
+    background-color: #FFF9E0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -33,6 +33,22 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #2D5A27;
+    margin: 5px 0;
+    transition: all 0.3s ease;
 }
 
 nav ul {
@@ -42,16 +58,12 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 30px; /* Spacing antara menu items */
-}
-
-nav ul li {
-    margin: 0;
+    gap: 30px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #2D5A27; /* Warna hijau tua */
+    color: #2D5A27;
     font-weight: 500;
     font-size: 1.1em;
     padding: 10px;
@@ -59,15 +71,34 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #3A7A33; /* Warna hijau lebih terang */
+    color: #3A7A33;
 }
 
 /* Media Query untuk Mobile */
 @media (max-width: 768px) {
-    nav ul {
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    nav ul.nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #FFF9E0;
         flex-direction: column;
-        padding: 10px 0;
+        padding: 20px 0;
         gap: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul.nav-menu.active {
+        display: flex;
     }
 
     nav ul li {
@@ -80,7 +111,21 @@ nav ul li a:hover {
         padding: 12px;
         font-size: 1em;
     }
+
+    /* Animasi hamburger menu */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
 }
+
 /* Hero Section */
 .hero {
     padding: 100px 0 50px;
