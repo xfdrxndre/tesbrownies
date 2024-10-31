@@ -5,15 +5,60 @@
     box-sizing: border-box;
 }
 
+/* Ubah bagian ini di awal CSS Anda */
 html, body {
     height: 100%;
     width: 100%;
-    overflow-x: hidden; /* Mencegah scroll horizontal */
+    overflow-x: hidden; /* Tetap mencegah scroll horizontal */
 }
 
 body {
     overflow-y: auto; /* Mengaktifkan scroll vertikal */
     position: relative;
+    min-height: 100vh; /* Memastikan body minimal setinggi viewport */
+}
+
+/* Tambahkan ini untuk memastikan konten utama memiliki ruang yang cukup */
+main {
+    min-height: calc(100vh - 60px - 200px); /* Kurangi tinggi header dan footer */
+    padding-top: 60px; /* Sesuaikan dengan tinggi header Anda */
+}
+
+/* Sesuaikan padding-top pada hero section */
+.hero {
+    padding-top: 80px; /* Sesuaikan dengan tinggi header Anda */
+    min-height: calc(100vh - 60px); /* Kurangi tinggi header */
+}
+
+/* Pastikan footer tetap di bawah */
+footer {
+    margin-top: auto;
+}
+
+/* Tambahkan ini jika Anda menggunakan flexbox untuk layout keseluruhan */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Untuk memastikan scrolling smooth */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Media query untuk layar yang lebih besar */
+@media screen and (min-width: 1024px) {
+    body {
+        overflow-y: auto; /* Memastikan scroll vertikal aktif pada layar besar */
+    }
+
+    main {
+        min-height: calc(100vh - 80px - 250px); /* Sesuaikan jika header/footer lebih tinggi pada desktop */
+    }
 }
 
 /* Container */
