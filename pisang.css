@@ -208,18 +208,21 @@ nav {
     }
 }
 
-/* Debugging CSS - hapus setelah selesai */
-@media (max-width: 428px) {
-    .hero * {
-        outline: 1px solid red;
+@media screen and (min-width: 769px) {
+    .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 40px;
     }
-    
+
     .hero-content {
-        outline: 1px solid blue;
+        flex: 1;
+        text-align: left;
+        padding-right: 40px;
     }
-    
-    .container {
-        outline: 1px solid green;
+
+    .hero-image {
+        flex: 1;
     }
 }
 
