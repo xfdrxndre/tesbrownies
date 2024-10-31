@@ -533,3 +533,149 @@ form button:hover {
         margin: 10% auto;
     }
 }
+
+@media (max-width: 768px) {
+    /* Header & Navigation */
+    header {
+        padding: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+        text-align: center;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 80px 20px 40px;
+        flex-direction: column;
+    }
+
+    .hero-content {
+        padding: 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-description {
+        font-size: 1em;
+    }
+
+    .hero-banner {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+
+    /* Products Section */
+    .products {
+        padding: 40px 20px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .product-card {
+        margin: 0 auto;
+        max-width: 350px;
+    }
+
+    /* About Section */
+    .about {
+        padding: 40px 20px;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image {
+        margin: 0 auto 20px;
+        max-width: 150px; /* Lebih kecil untuk mobile */
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .learn-more {
+        display: block;
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .additional-info {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 40px 20px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 0;
+    }
+
+    /* Form Elements */
+    form input,
+    form textarea {
+        padding: 12px;
+        font-size: 16px; /* Better for mobile touch */
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+    }
+}
+
+/* Tambahan untuk layar yang lebih kecil */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .product-card {
+        max-width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 15px;
+    }
+}
+
+/* Tambahan untuk menu hamburger */
+@media (max-width: 768px) {
+    nav {
+        position: relative;
+    }
+
+    nav ul {
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+}
