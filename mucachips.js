@@ -89,22 +89,23 @@ window.onclick = function(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  const learnMoreButton = document.querySelector(".learn-more");
-  const additionalInfo = document.querySelector(".additional-info");
+    const learnMoreButton = document.querySelector(".learn-more");
+    const additionalInfo = document.querySelector(".additional-info");
 
-  // Sembunyikan tambahan info di awal
-  additionalInfo.style.display = "none";
+    // Sembunyikan info tambahan di awal
+    additionalInfo.style.display = "none";
 
-  // Fungsi untuk menampilkan atau menyembunyikan tambahan info
-  learnMoreButton.addEventListener("click", function() {
-    if (additionalInfo.style.display === "none") {
-      additionalInfo.style.display = "block";
-      learnMoreButton.textContent = "Tutup";
-    } else {
-      additionalInfo.style.display = "none";
-      learnMoreButton.textContent = "Pelajari Lebih Lanjut";
-    }
-  });
+    // Event listener untuk klik tombol
+    learnMoreButton.addEventListener("click", function() {
+        console.log("Tombol diklik"); // Log ini untuk mengonfirmasi klik
+        if (additionalInfo.style.display === "none") {
+            additionalInfo.style.display = "block";
+            learnMoreButton.textContent = "Tutup";
+        } else {
+            additionalInfo.style.display = "none";
+            learnMoreButton.textContent = "Pelajari Lebih Lanjut";
+        }
+    });
 });
 
     const menuToggle = document.querySelector('.menu-toggle');
