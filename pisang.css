@@ -97,7 +97,7 @@ nav {
     color: #3A7A33;
     font-weight: 500;
     line-height: 1.4;
-    max-width: 500px;
+    max-width: 100%;
     animation: fadeIn 1s ease-out 0.3s;
     opacity: 0;
     animation-fill-mode: forwards;
@@ -214,12 +214,9 @@ nav {
         text-align: center;
         padding-top: 100px;
     }
-
+    
     .hero-content {
-        flex: 0 1 auto;
-        padding: 2rem;
-        align-items: center;
-        width: 100%; /* Tambahkan ini */
+        align-items: center; /* Ubah menjadi center untuk tampilan mobile */
     }
 
     .hero-title {
@@ -586,6 +583,10 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero-image img {
+        max-width: 100%;
+        height: auto;
+    }
     .nav-menu {
         display: none;
         flex-direction: column;
