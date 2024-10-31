@@ -8,9 +8,43 @@
 
 /* Container */
 .container {
-    max-width: 1000px; /* Ubah lebar maksimum sesuai kebutuhan */
+    max-width: 1000px; /* Lebar maksimum */
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* Products Section */
+.products {
+    padding: 40px 0; /* Kurangi padding */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ubah ukuran minimum */
+    gap: 20px; /* Sesuaikan jarak antar produk */
+}
+
+/* Gambar */
+img {
+    max-width: 100%; /* Pastikan gambar responsif */
+    height: auto; /* Jaga rasio aspek */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 80px; /* Kurangi padding pada hero */
+    }
+
+    .hero-content {
+        padding: 0 10px; /* Kurangi padding */
+    }
+
+    .product-grid {
+        padding: 0 10px; /* Kurangi padding */
+    }
 }
 
 /* Header & Navigation */
@@ -73,7 +107,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    padding: 120px 0 50px;
+    padding: 80px 0 50px; /* Kurangi padding */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -105,8 +139,7 @@ nav {
 
 /* Products Section */
 .products {
-    padding: 80px 0;
-    background-color: #FFFFFF;
+    padding: 40px 0; /* Kurangi padding */
 }
 
 .products h2 {
@@ -117,9 +150,8 @@ nav {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 0 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ubah ukuran minimum */
+    gap: 20px; /* Sesuaikan jarak antar produk */
 }
 
 .product-card {
@@ -159,6 +191,23 @@ nav {
     font-weight: bold;
     color: #2D5A27;
     margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 80px; /* Kurangi padding pada hero */
+    }
+
+    .hero-content {
+        padding: 0 10px; /* Kurangi padding */
+    }
+
+    .product-grid {
+        padding: 0 10px; /* Kurangi padding */
+    }
 }
 
 /* Buttons */
