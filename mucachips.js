@@ -95,3 +95,28 @@ document.addEventListener('DOMContentLoaded', function() {
         quantityInput.addEventListener('input', updateTotal);
     }
 });
+
+// Add to mucachips.js
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
+    
+    navToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!nav.contains(e.target) && !navToggle.contains(e.target)) {
+            nav.classList.remove('active');
+        }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            nav.classList.remove('active');
+        });
+    });
+});
