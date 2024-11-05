@@ -74,9 +74,9 @@
 
         <div id="buyModal" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeBuyForm()">&times;</span>
+                <span class="close">&times;</span>
                 <h2>Beli <span id="productName"></span></h2>
-                <form id="orderForm" onsubmit="submitOrder(event)">
+                <form id="orderForm">
                     <div class="form-group">
                         <label for="name">Nama:</label>
                         <input type="text" id="name" required>
@@ -87,21 +87,16 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Nomor WhatsApp:</label>
-                        <input type="tel" id="phone" pattern="[0-9]{10,13}" required>
+                        <input type="tel" id="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="quantity">Jumlah:</label>
-                        <input type="number" id="quantity" value="1" min="1" required onchange="updateTotal()">
+                        <input type="number" id="quantity" value="1" min="1" required>
                     </div>
                     <p>Total: Rp <span id="totalPrice">0</span></p>
-                    
-                    <!-- Tombol Debug -->
-                    <div class="debug-section" style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
-                        <button type="button" class="btn btn-secondary" onclick="debugForm()">Check Form Data</button>
-                        <div id="debugOutput" style="margin-top: 10px; font-family: monospace; font-size: 12px;"></div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Pesan via WhatsApp</button>
+                    <button type="button" onclick="submitOrder(event)" class="btn btn-primary">
+                        Pesan via WhatsApp
+                    </button>
                 </form>
             </div>
         </div>
