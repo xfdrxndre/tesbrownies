@@ -7,59 +7,72 @@ let isFormSubmitting = false; // Flag untuk mencegah multiple submission
 // Fungsi untuk mengupdate total harga saat jumlah berubah
 function updateTotal() {
     const quantity = parseInt(document.getElementById("quantity").value) || 1;
-    const basePrice = 10000;
+    const basePrice = 10000; // Harga dasar produk
     const total = quantity * basePrice;
     document.getElementById("totalPrice").textContent = total.toLocaleString('id-ID');
 }
 
 // Fungsi untuk membuka modal pemesanan
 function openBuyForm(productName, price) {
-    document.getElementById("buyModal").style.display = "block";
-    document.getElementById("productName").textContent = productName;
-    document.getElementById("totalPrice").textContent = price.toLocaleString('id-ID');
-    document.getElementById("quantity").value = "1";
+    const modal = document.getElementById("buyModal");
+    const productNameSpan = document.getElementById("productName");
+    const totalPriceSpan = document.getElementById("totalPrice");
+    const quantityInput = document.getElementById("quantity");
+
+    productNameSpan.textContent = productName;
+    totalPriceSpan.textContent = price.toLocaleString('id-ID');
+    modal.style.display = "block";
+    
+    // Reset form
+    document.getElementById("orderForm").reset();
+    quantityInput.value = "1";
     updateTotal();
 }
 
 // Fungsi untuk menutup modal
 function closeBuyForm() {
-    document.getElementById("buyModal").style.display = "none";
+    const modal = document.getElementById("buyModal");
+    modal.style.display = "none";
     document.getElementById("orderForm").reset();
 }
 
 // Fungsi untuk mengirim pesanan via WhatsApp
 function submitOrder(event) {
     event.preventDefault();
-    console.log("Form submitted"); // Debug log
 
-    // Ambil data dari form
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
+    // Ambil data dari formulir
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
     const quantity = document.getElementById("quantity").value;
     const productName = document.getElementById("productName").textContent;
-    const totalPrice = document.getElementById("totalPrice").textContent;
+    const totalPrice = parseInt(document.getElementById("totalPrice").textContent.replace(/\D/g, ''));
 
+    // Validasi nomor telepon
+    if (phone.length < 10 || phone.length > 13) {
+        alert("Nomor WhatsApp harus antara 10-13 digit!");
+        return;
+    }
+
+    // Format nomor WhatsApp - pastikan dimulai dengan 62
+    let waNumber = "6281554370247";
+    
     // Buat pesan WhatsApp
-    const message = `Halo, saya ingin memesan:\n\n` +
-                   `Produk: ${productName}\n` +
-                   `Nama: ${name}\n` +
-                   `Email: ${email}\n` +
-                   `WhatsApp: ${phone}\n` +
-                   `Jumlah: ${quantity}\n` +
-                   `Total: Rp ${totalPrice}\n\n` +
-                   `Mohon konfirmasi pesanan saya. Terima kasih!`;
+    let message = `Halo, saya ingin memesan *${productName}* dengan rincian sebagai berikut:\n\n`;
+    message += `Nama: *${name}*\n`;
+    message += `Email: ${email}\n`;
+    message += `No. WhatsApp: *${phone}*\n`;
+    message += `Jumlah: *${quantity}*\n`;
+    message += `Total Harga: *Rp ${totalPrice.toLocaleString('id-ID')}*\n\n`;
+    message += `Mohon konfirmasi pesanan saya. Terima kasih!`;
 
-    // Nomor WhatsApp tujuan (ganti dengan nomor yang benar)
-    const waNumber = "6281554370247";
-
+    // Encode pesan untuk URL
+    const encodedMessage = encodeURIComponent(message);
+    
     // Buat URL WhatsApp
-    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-
-    // Log URL untuk debugging
-    console.log("WhatsApp URL:", waUrl);
-
-    // Buka WhatsApp
+    const waUrl = `https://api.whatsapp.com/send?phone=${waNumber}&text=${encodedMessage}`;
+    
+    // Buka WhatsApp di tab baru
     window.open(waUrl, '_blank');
     
     // Tutup modal
@@ -68,19 +81,19 @@ function submitOrder(event) {
 
 // Event listeners
 document.addEventListener("DOMContentLoaded", function() {
-    // Input quantity
+    // Event listener untuk input jumlah
     const quantityInput = document.getElementById("quantity");
     if (quantityInput) {
-        quantityInput.addEventListener("change", updateTotal);
+        quantityInput.addEventListener("input", updateTotal);
     }
 
-    // Close button
+    // Event listener untuk tombol close modal
     const closeBtn = document.querySelector(".close");
     if (closeBtn) {
         closeBtn.addEventListener("click", closeBuyForm);
     }
 
-    // Click outside modal
+    // Event listener untuk klik di luar modal
     window.addEventListener("click", function(event) {
         const modal = document.getElementById("buyModal");
         if (event.target === modal) {
