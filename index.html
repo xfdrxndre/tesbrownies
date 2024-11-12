@@ -42,63 +42,63 @@
             </div>
         </section>
     </main>
-        <section id="products" class="products">
-            <div class="container">
-                <h2 class="section-title">Produk Unggulan Kami</h2>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="./topchoco.webp" alt="MUCACHIPS Topping Choco Chips" />
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">MUCACHIPS Topping Choco Chips</h3>
-                            <p class="product-description">Renyah dan gurih, cocok untuk camilan sehari-hari.</p>
-                            <p class="product-price">Rp 10.000</p>
-                            <button class="btn buy-btn" onclick="openBuyForm('MUCACHIPS Topping Choco Chips', 10000)">Beli Sekarang</button>
-                        </div>
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Produk Unggulan Kami</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./topchoco.webp" alt="MUCACHIPS Topping Choco Chips" />
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="./topkeju.webp" alt="MUCACHIPS Topping Keju" />
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">MUCACHIPS Topping Keju</h3>
-                            <p class="product-description">Dengan bumbu pedas yang menggugah selera.</p>
-                            <p class="product-price">Rp 10.000</p>
-                            <button class="btn buy-btn" onclick="openBuyForm('MUCACHIPS Topping Keju', 10000)">Beli Sekarang</button>
-                        </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MUCACHIPS Topping Choco Chips</h3>
+                        <p class="product-description">Kombinasi sempurna antara renyah dan manisnya choco chips, menjadikannya camilan istimewa yang cocok dinikmati kapan saja.</p>
+                        <p class="product-price">Rp 10.000</p>
+                        <button class="btn buy-btn" onclick="openBuyForm('MUCACHIPS Topping Choco Chips', 10000)">Beli Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./topkeju.webp" alt="MUCACHIPS Topping Keju" />
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MUCACHIPS Topping Keju</h3>
+                        <p class="product-description">Renyah dan gurih dengan rasa keju yang menggoda, cocok untuk camilan sehari-hari dan menambah keseruan di setiap gigitannya.</p>
+                        <p class="product-price">Rp 10.000</p>
+                        <button class="btn buy-btn" onclick="openBuyForm('MUCACHIPS Topping Keju', 10000)">Beli Sekarang</button>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <div id="buyModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeBuyForm()">&times;</span>
-                <h2>Beli <span id="productName"></span></h2>
-                <form id="orderForm" onsubmit="submitOrder(event)">
-                    <div class="form-group">
-                        <label for="name">Nama:</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Nomor WhatsApp:</label>
-                        <input type="tel" id="phone" pattern="[0-9]{10,13}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Jumlah:</label>
-                        <input type="number" id="quantity" value="1" min="1" required onchange="updateTotal()">
-                    </div>
-                    <p>Total: Rp <span id="totalPrice">0</span></p>
-                    <button type="submit" class="btn btn-primary">Pesan via WhatsApp</button>
-                </form>
-            </div>
         </div>
-        
+    </section>
+
+    <div id="buyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBuyForm()">&times;</span>
+            <h2>Beli <span id="productName"></span></h2>
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="name">Nama:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Nomor WhatsApp:</label>
+                    <input type="tel" id="phone" pattern="[0-9]{10,13}" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Jumlah:</label>
+                    <input type="number" id="quantity" value="1" min="1" required onchange="updateTotal()">
+                </div>
+                <p>Total: Rp <span id="totalPrice">0</span></p>
+                <button type="submit" class="btn btn-primary">Pesan via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title text-center">Tentang Kami</h2>
@@ -106,21 +106,23 @@
                 <div class="about-image">
                     <img src="./logo-01.jpg" alt="MUCACHIPS" />
                 </div>
-        <div class="about-text">
-            <p>MUCACHIPS adalah pionir dalam inovasi camilan sehat berbahan dasar pelepah pisang. Dengan komitmen untuk menyajikan produk berkualitas tinggi yang tidak hanya lezat tetapi juga ramah lingkungan, kami bertekad untuk memberikan yang terbaik bagi pelanggan.</p>
-            <p>Sejak didirikan pada tahun 2024, MUCACHIPS telah berkembang pesat menjadi merek terkemuka di industri makanan ringan alternatif. Kami bangga mampu mengubah limbah pertanian menjadi camilan lezat dan bergizi yang dinikmati oleh ribuan pelanggan di seluruh Indonesia.</p>
-            <button class="btn btn-secondary learn-more">Pelajari Lebih Lanjut</button>
-            <div class="additional-info">
-                <div class="info-section">
-                    <h3>Proses Pembuatan</h3>
-                    <p>Produk MUCACHIPS dibuat melalui serangkaian proses yang higienis dan teliti untuk memastikan kualitas terbaik:</p>
-                    <ul>
-                        <li>Seleksi pelepah pisang berkualitas tinggi</li>
-                        <li>Proses pembersihan dan pengolahan dengan standar khusus</li>
-                        <li>Penambahan bahan-bahan premium untuk cita rasa optimal</li>
-                        <li>Pengovenan dengan pengaturan suhu yang terkontrol dengan baik</li>
-                    </ul>
-                    <p>Dengan menggunakan bahan baku yang berkualitas dan proses pembuatan yang cermat, MUCACHIPS memastikan setiap produknya memiliki rasa yang lezat dan manfaat kesehatan yang optimal. Kami berkomitmen untuk terus berinovasi dalam menciptakan camilan yang sehat dan enak untuk semua kalangan.</p>
+                <div class="about-text">
+                    <p>MUCACHIPS adalah pionir dalam inovasi camilan sehat berbahan dasar pelepah pisang. Dengan komitmen untuk menyajikan produk berkualitas tinggi yang tidak hanya lezat tetapi juga ramah lingkungan, kami bertekad untuk memberikan yang terbaik bagi pelanggan.</p>
+                    <p>Sejak didirikan pada tahun 2024, MUCACHIPS telah berkembang pesat menjadi merek terkemuka di industri makanan ringan alternatif. Kami bangga mampu mengubah limbah pertanian menjadi camilan lezat dan bergizi yang dinikmati oleh ribuan pelanggan di seluruh Indonesia.</p>
+                    <button class="btn btn-secondary learn-more">Pelajari Lebih Lanjut</button>
+                    <div class="additional-info">
+                        <div class="info-section">
+                            <h3>Proses Pembuatan</h3>
+                            <p>Produk MUCACHIPS dibuat melalui serangkaian proses yang higienis dan teliti untuk memastikan kualitas terbaik:</p>
+                            <ul>
+                                <li>Seleksi pelepah pisang berkualitas tinggi</li>
+                                <li>Proses pembersihan dan pengolahan dengan standar khusus</li>
+                                <li>Penambahan bahan-bahan premium untuk cita rasa optimal</li>
+                                <li>Pengovenan dengan pengaturan suhu yang terkontrol dengan baik</li>
+                            </ul>
+                            <p>Dengan menggunakan bahan baku yang berkualitas dan proses pembuatan yang cermat, MUCACHIPS memastikan setiap produknya memiliki rasa yang lezat dan manfaat kesehatan yang optimal. Kami berkomitmen untuk terus berinovasi dalam menciptakan camilan yang sehat dan enak untuk semua kalangan.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -148,12 +150,10 @@
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 MUCACHIPS. All rights reserved.</p>
+        <div class="container text-center">
+            <p>&copy; 2023 MUCACHIPS. All rights reserved.</p>
         </div>
     </footer>
-
-    <script src="mucachips.js"></script>
-    <input type="number" id="quantity" value="1" min="1" required onchange="updateTotal()" oninput="updateTotal()">
+    <script src="pisang.js"></script>
 </body>
 </html>
