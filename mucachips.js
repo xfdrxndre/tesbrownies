@@ -142,53 +142,66 @@ if (menuToggle && navMenu) {
         }
     });
 }
-// Event listener untuk tombol "Pelajari Lebih Lanjut"
+
 document.addEventListener("DOMContentLoaded", function() {
+    // Tombol "Pelajari Lebih Lanjut"
     const learnMoreButton = document.querySelector(".learn-more");
     const additionalInfo = document.querySelector(".additional-info");
 
-    additionalInfo.style.display = "none";
+    if (learnMoreButton && additionalInfo) {
+        additionalInfo.style.display = "none";
 
-    learnMoreButton.addEventListener("click", function() {
-        if (additionalInfo.style.display === "none") {
-            additionalInfo.style.display = "block";
-            learnMoreButton.textContent = "Tutup";
-        } else {
-            additionalInfo.style.display = "none";
-            learnMoreButton.textContent = "Pelajari Lebih Lanjut";
-        }
-    });
-});
+        learnMoreButton.addEventListener("click", function() {
+            if (additionalInfo.style.display === "none") {
+                additionalInfo.style.display = "block";
+                learnMoreButton.textContent = "Tutup";
+            } else {
+                additionalInfo.style.display = "none";
+                learnMoreButton.textContent = "Pelajari Lebih Lanjut";
+            }
+        });
+    }
 
-// Event listener untuk hamburger menu
-document.addEventListener("DOMContentLoaded", function() {
+    // Hamburger Menu
     const hamburger = document.querySelector(".hamburger");
     const navMenuHamburger = document.querySelector(".nav-menu");
 
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenuHamburger.classList.toggle("active");
-    });
+    if (hamburger && navMenuHamburger) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenuHamburger.classList.toggle("active");
+        });
 
-    document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navMenuHamburger.classList.remove("active");
-    }));
-});
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenuHamburger.classList.remove("active");
+        }));
 
-// Event listener untuk toggle menu pada tampilan mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
-menuToggle.addEventListener('click', function() {
-    navMenu.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-});
+        document.addEventListener('click', function(event) {
+            const isClickInside = navMenuHamburger.contains(event.target) || hamburger.contains(event.target);
+            if (!isClickInside && navMenuHamburger.classList.contains('active')) {
+                navMenuHamburger.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    }
 
-// Menutup menu saat klik di luar area menu
-document.addEventListener('click', function(event) {
-    const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
-    if (!isClickInside && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
+    // Toggle Menu pada Tampilan Mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(event) {
+            const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
+            if (!isClickInside && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
     }
 });
